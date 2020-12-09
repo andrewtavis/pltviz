@@ -25,7 +25,7 @@ import stdviz
 
 # View
 
-[stdviz.view]() contains helper functions to make object display easier.
+[stdviz.view](https://github.com/andrewtavis/stdviz/blob/main/stdviz/view.py) contains helper functions to make object display easier.
 
 ```python
 import pandas as pd
@@ -54,7 +54,7 @@ add_num_commas(1234567.89)
 
 # Plot
 
-Plotting methods within [stdviz/plot]() are tailored to provide quick results for staples of data visualization while at the same time including unique and novel tools. See [examples/plotting]() for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas.
+Plotting methods within [stdviz/plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot) are tailored to provide quick results for staples of data visualization while at the same time including unique and novel tools. See [examples/plotting](https://github.com/andrewtavis/stdviz/blob/main/examples/plotting.ipynb) for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas.
 
 Examples of standard plotting made easy are:
 
@@ -102,14 +102,22 @@ ax = stdviz.plot.dispr_bar(shares=votes, allocations=seat_allocations,
                            total_shares=None, total_alloc=None,
                            percent_change=True, axis=None)
 
-# Legend for relative shares
+handles, labels = stdviz.plot.legend.gen_elements(counts=[round(v/sum(votes), 4) for v in votes], 
+                                                  names=parties, colors=party_colors, 
+                                                  size=15, marker='o', padding_indexes=None,
+                                                  order=None)
+
+ax.legend(handles=handles, labels=labels,
+          title='Vote Percents (bar widths)', 
+          title_fontsize=20, fontsize=15, 
+          ncol=2, loc='top left', bbox_to_anchor=(0, 1), 
+          frameon=False, facecolor='#ffffff', framealpha=1)
 
 ax.axes.set_title('Seat-Share Disproportionality', fontsize=30)
 ax.set_xlabel('Groups', fontsize=20)
 ax.set_ylabel('Percent Shift', fontsize=20)
 
 plt.show()
-#
 ```
 
 # To-Do
