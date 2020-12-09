@@ -8,7 +8,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue.svg)](https://pypi.org/project/stdviz/)
 [![GitHub](https://img.shields.io/github/license/andrewtavis/stdviz.svg)](https://github.com/andrewtavis/stdviz/blob/master/LICENSE)
 
-### Vizualization and display in Python - standardized
+### Standardized vizualization and object display in Python
 
 **Jump to:** [View](#view) • [Plot](#plot) • [To-Do](#to-do)
 
