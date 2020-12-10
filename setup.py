@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
 
 setup_args = dict(
     name='stdviz',
-    version='0.0.1.1',
+    version='0.0.1.2',
     description='Standardized vizualization in Python',
     long_description=long_description,
     long_description_content_type="text/markdown",

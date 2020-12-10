@@ -192,7 +192,7 @@ def gen_random_colors(num_groups, colors=None):
         return colors
 
 
-def gen_parl_points(seat_counts, 
+def gen_parl_points(allocations, 
                     names=None,
                     style='semicircle', 
                     num_rows=2,
@@ -202,7 +202,7 @@ def gen_parl_points(seat_counts,
 
     Parameters
     ----------
-        seat_counts : list
+        allocations : list
             The share of seats given to the regions or parties
 
         names : list : optional (default=None)
@@ -223,29 +223,29 @@ def gen_parl_points(seat_counts,
         df_seat_lctns : pd.DataFrame
             A dataframe with points to be converted to a parliament plot via seaborn's scatterplot
     """ 
-    total_seats = sum(seat_counts)
+    total_seats = sum(allocations)
     
     if not names:
         # For dataframe assignment
-        names = [f"group_{i}" for i in range(len(seat_counts))]
+        names = [f"group_{i}" for i in range(len(allocations))]
 
     if speaker:
         assert (speaker == True) or (speaker in names), "Either the 'speaker' argument must be true, or must match an element from the provided 'names' argument"
         total_seats -= 1
-        seat_counts = list(seat_counts)
+        allocations = list(allocations)
 
         if speaker == True:
-            assert len([c for c in seat_counts if c == max(seat_counts)]) == 1, "Two parties got the highest number of seats in the allocation. Please assign the speaker via passing one of their names."
+            assert len([c for c in allocations if c == max(allocations)]) == 1, "Two parties got the highest number of seats in the allocation. Please assign the speaker via passing one of their names."
             
-            largest_group_index = seat_counts.index(max(seat_counts))
-            seat_counts[largest_group_index] -= 1
+            largest_group_index = allocations.index(max(allocations))
+            allocations[largest_group_index] -= 1
 
             # Reassign 'speaker' to the largest group's name so it can be assigned later
             speaker = names[largest_group_index]
         
         elif speaker in names:
             largest_group_index = names.index(speaker)
-            seat_counts[largest_group_index] -= 1
+            allocations[largest_group_index] -= 1
     
     # Make an empty dataframe and fill it with coordinates for the structure
     # Then assign group values for allocation based on the rows
@@ -300,9 +300,9 @@ def gen_parl_points(seat_counts,
         df_seat_lctns['row'] = row_indexes
         df_seat_lctns['row_position'] = [item for sublist in row_position_indexes for item in sublist]
         
-        # Index the group and depleat a copy of seat_counts at its location
+        # Index the group and depleat a copy of allocations at its location
         group_index = 0
-        seats_to_allocate = seat_counts.copy()
+        seats_to_allocate = allocations.copy()
         row_index = 0
         
         while total_seats > 0:
@@ -355,7 +355,7 @@ def gen_parl_points(seat_counts,
                 x_coordinate += 2
                 
             df_seat_lctns['row'] = [0] * len(df_seat_lctns)
-            list_of_name_lists = [[names[i]]*seat_counts[i] for i in range(len(seat_counts))]
+            list_of_name_lists = [[names[i]]*allocations[i] for i in range(len(allocations))]
             df_seat_lctns['group'] = [item for sublist in list_of_name_lists for item in sublist]
                 
         else:
@@ -408,9 +408,9 @@ def gen_parl_points(seat_counts,
             for row in bottom_rows:
                 total_bottom_seats += len(df_seat_lctns[df_seat_lctns['y_loc'] == row])
 
-            # Index the group and depleat a copy of seat_counts at its location
+            # Index the group and depleat a copy of allocations at its location
             group_index = 0
-            seats_to_allocate = seat_counts.copy()
+            seats_to_allocate = allocations.copy()
 
             # Top assignment from low to high and left to right
             top_x = 0

@@ -12,7 +12,7 @@
 
 **Jump to:** [Plot](#plot) • [Advanced](#advanced) • [Routine](#routine) • [Novel](#novel) • [To-Do](#to-do)
 
-**stdviz** is a Python package for standardized visualization. Advanced, routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. In short, this package provides plotting templates.
+**stdviz** is a Python package for standardized visualization. Advanced, routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for exact colors across plots and to assure that all functions can be ran with color hexes.
 
 # Installation via PyPi
 ```bash
@@ -110,7 +110,7 @@ ax.legend(handles=handles, labels=labels,
           title='Bundestag: {} seats'.format(sum(seat_allocations)), 
           title_fontsize=20, fontsize=14, 
           ncol=2, loc='center', bbox_to_anchor=(0.5, 0.17), 
-          frameon=False, facecolor='#ffffff', framealpha=1)
+          frameon=False, facecolor='#FFFFFF', framealpha=1)
 
 plt.show()
 ```
@@ -127,12 +127,12 @@ Specifically for election analysis, stdviz provides a Python only implementation
 # Using the same variables from above
 fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
 
-ax1 = stdviz.plot.parliament(seat_counts=seat_allocations, 
+ax1 = stdviz.plot.parliament(allocations=seat_allocations, 
                              names=parties, colors=party_colors, 
                              style='rectangle', num_rows=4, marker_size=300, 
                              speaker=True, df_seat_lctns=None, axis=ax1)
 
-ax2 = stdviz.plot.parliament(seat_counts=seat_allocations, 
+ax2 = stdviz.plot.parliament(allocations=seat_allocations, 
                              names=parties, colors=party_colors, 
                              style='semicircle', num_rows=4, marker_size=175, 
                              speaker=False, df_seat_lctns=None, axis=ax2)
@@ -154,7 +154,7 @@ An example follows:
 votes = [2700, 900, 3300, 1300, 2150, 500]
 
 ax = stdviz.plot.dispr_bar(shares=votes, 
-                           allocations=allocations,
+                           allocations=seat_allocations,
                            names=parties, 
                            colors=party_colors, 
                            total_shares=None, 
@@ -171,7 +171,7 @@ ax.legend(handles=handles, labels=labels,
           title='Vote Percents (bar widths)', 
           title_fontsize=15, fontsize=11, 
           ncol=2, loc='upper left', bbox_to_anchor=(0, 1), 
-          frameon=True, facecolor='#ffffff', framealpha=1)
+          frameon=True, facecolor='#FFFFFF', framealpha=1)
 
 ax.axes.set_title('Seat to Vote Share Disproportionality', fontsize=30)
 ax.set_xlabel('Parties', fontsize=20)
