@@ -10,9 +10,9 @@
 
 ### Standardized vizualization in Python
 
-**Jump to:** [Plot](#plot) • [To-Do](#to-do)
+**Jump to:** [Plot](#plot) • [Advanced](#advanced) • [Standard](#standard) • [Novel](#novel) • [To-Do](#to-do)
 
-**stdviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results.
+**stdviz** is a Python package for standardized visualization. Advanced, routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. In short, this package provides plotting templates.
 
 # Installation via PyPi
 ```bash
@@ -25,17 +25,19 @@ import stdviz
 
 # Plot
 
-Plotting methods within [stdviz/plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot) are tailored to provide quick results for staples of data visualization while at the same time including unique and novel tools. See [examples/plotting](https://github.com/andrewtavis/stdviz/blob/main/examples/plotting.ipynb) for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas.
+Plotting methods within [stdviz/plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot) are tailored to provide quick results for staples of data visualization while at the same time including unique and novel tools. 
+
+### Advanced
 
 Advanced standardized plots include t-SNE dimensional reduction for [Latent Dirichlet allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) models ran over a provided text corpus:
 
 ```python
 corpus = [['corpus', 'of'], ['text', 'tokens']]
 
-fig = t_sne(dimension='both',
-            corpus=corpus, 
-            num_topics=10,
-            remove_3d_outliers=True)
+fig = stdviz.plot.t_sne(dimension='both', # 3D and 2D dimensional reduction
+                        corpus=corpus, 
+                        num_topics=10,
+                        remove_3d_outliers=True)
 
 plt.show()
 ```
@@ -44,7 +46,11 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/t_sne.png" width="600" />
 </p>
 
-Examples of standard plotting techniques made easy are:
+### Routine
+
+See [examples/plotting](https://github.com/andrewtavis/stdviz/blob/main/examples/plotting.ipynb) for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas. 
+
+Examples of routine plotting techniques made easy are:
 
 ```python
 import matplotlib.pyplot as plt
@@ -108,6 +114,8 @@ plt.show()
 <p align="middle">
   <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/semipie.png" width="600" />
 </p>
+
+### Novel
 
 Specifically for election analysis, stdviz provides a Python only implementation of parliament plots:
 

@@ -1,5 +1,5 @@
 # =============================================================================
-# The multidimensional t-sne plot function
+# The dimension reduction t-SNE plot function
 #
 # Contents
 # --------
@@ -45,7 +45,8 @@ def t_sne(dimension='both',
 
     Returns
     -------
-        A t-SNE lower dimensional representation of an LDA model's topics and their constituent members
+        fig : matplotlib.pyplot.figure
+            A t-SNE lower dimensional representation of an LDA model's topics and their constituent members
     """
     dirichlet_dict = corpora.Dictionary(corpus)
     bow_corpus = [dirichlet_dict.doc2bow(text) for text in corpus]
