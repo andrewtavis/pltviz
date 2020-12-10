@@ -8,11 +8,11 @@
 [![Python Version](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue.svg)](https://pypi.org/project/stdviz/)
 [![GitHub](https://img.shields.io/github/license/andrewtavis/stdviz.svg)](https://github.com/andrewtavis/stdviz/blob/master/LICENSE)
 
-### Standardized vizualization and object display in Python
+### Standardized vizualization in Python
 
-**Jump to:** [View](#view) • [Plot](#plot) • [To-Do](#to-do)
+**Jump to:** [Plot](#plot) • [To-Do](#to-do)
 
-**stdviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Helper functions for easier object display are also included.
+**stdviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results.
 
 # Installation via PyPi
 ```bash
@@ -21,35 +21,6 @@ pip install stdviz
 
 ```python
 import stdviz
-```
-
-# View
-
-[stdviz.view](https://github.com/andrewtavis/stdviz/blob/main/stdviz/view.py) contains helper functions to make object display easier.
-
-```python
-import pandas as pd
-from stdviz.view import disp # a version of display that allows for dimension inputs
-
-a_dict = {'a': 1, 'b': 2, 'c': 3}
-disp(a_dict, 2) # number of key-value pairs
-# {'a': 1, 'b': 2}
-
-df = pd.DataFrame(dict(zip('ABCDE', range(1, 6))), range(4))
-disp(df, 2, 3) # length and width
-```
-|   A |   B |   C |
-|----:|----:|----:|
-|   1 |   2 |   3 |
-|   1 |   2 |   3 |
-
-Also included are simple tools to make things a bit more readable:
-
-```python
-from stdviz.view import add_num_commas
-
-add_num_commas(1234567.89)
-# '1,234,567.89'
 ```
 
 # Plot

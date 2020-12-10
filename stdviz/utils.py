@@ -15,6 +15,7 @@
 #   0. No Class
 #       round_if_int
 #       gen_list_of_lists
+#       add_num_commas
 #
 #       hex_to_rgb
 #       rgb_to_hex
@@ -57,6 +58,31 @@ def gen_list_of_lists(original_list, new_structure):
                      for j in range(len(new_structure))]
 
     return list_of_lists
+
+
+def add_num_commas(num):
+    """Adds commas to a numeric string for readability"""
+    num_str = str(num)
+    num_str_no_decimal = num_str.split('.')[0]
+    if '.' in num_str:
+        decimal = num_str.split('.')[1]
+    else:
+        decimal = None
+
+    str_list = [i for i in num_str_no_decimal]
+    str_list = str_list[::-1]
+    
+    str_list_with_commas = [str_list[i] + ',' if i % 3 == 0 and i != 0 else str_list[i] for i in range(len(str_list))]
+    str_list_with_commas = str_list_with_commas[::-1]
+    
+    str_with_commas = ''
+    for i in str_list_with_commas:
+        str_with_commas += i
+
+    if decimal != None:
+        return str_with_commas + '.' + decimal
+    else:
+        return str_with_commas
 
 
 def hex_to_rgb(hex_rep):
