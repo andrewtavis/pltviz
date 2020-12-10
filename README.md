@@ -65,6 +65,9 @@ ax.legend(handles=handles, labels=labels,
 ax.set_ylabel('Seats', fontsize=15)
 ax.set_xlabel('Party', fontsize=15)
 ```
+<p align="middle">
+  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/bar.png" width="600" />
+</p>
 
 ```python
 ax = stdviz.plot.semipie(counts=seat_allocations,
@@ -84,9 +87,9 @@ ax.legend(handles=handles, labels=labels,
 
 plt.show()
 ```
+
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/gh_images/bar.png" width="400" />
-  <img src="https://raw.githubusercontent.com/andrewtavis/causeinfer/master/resources/gh_images/semipie.png" width="400" /> 
+  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/semipie.png" width="600" />
 </p>
 
 Specifically for election analysis, stdviz provides a Python only implementation of parliament plots:
@@ -107,9 +110,10 @@ ax2 = stdviz.plot.parliament(seat_counts=seat_allocations,
 
 plt.show()
 ```
+
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/gh_images/rectangle_parliament.png" width="400" />
-  <img src="https://raw.githubusercontent.com/andrewtavis/causeinfer/master/resources/gh_images/semicircle_parliament.png" width="400" /> 
+  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/rectangle_parliament.png" width="400" />
+  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/semicircle_parliament.png" width="400" /> 
 </p>
 
 A further novel addition to social science analysis is the [disproportionality bar plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/disp_bar), which graphically depicts the disproportionality between expected and realized results. Bar widths are the proportion of shares (ex: votes received), and heights are the difference or relative difference between shares and allocations (ex: parliament seats received). 
@@ -147,7 +151,7 @@ ax.set_ylabel('Percent Shift', fontsize=20)
 plt.show()
 ```
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/gh_images/dispr_bar.png" width="600" />
+  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/dispr_bar.png" width="600" />
 </p>
 
 # To-Do
