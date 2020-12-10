@@ -27,6 +27,23 @@ import stdviz
 
 Plotting methods within [stdviz/plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot) are tailored to provide quick results for staples of data visualization while at the same time including unique and novel tools. See [examples/plotting](https://github.com/andrewtavis/stdviz/blob/main/examples/plotting.ipynb) for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas.
 
+Advanced standardized plots include t-SNE dimensional reduction for [Latent Dirichlet allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) models ran over a provided text corpus:
+
+```python
+corpus = [['corpus', 'of'], ['text', 'tokens']]
+
+fig = t_sne(dimension='both',
+            corpus=corpus, 
+            num_topics=10,
+            remove_3d_outliers=True)
+
+plt.show()
+```
+
+<p align="middle">
+  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/t_sne.png" width="600" />
+</p>
+
 Examples of standard plotting techniques made easy are:
 
 ```python
