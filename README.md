@@ -10,7 +10,7 @@
 
 ### Standardized vizualization in Python
 
-**Jump to:** [Plot](#plot) • [Advanced](#advanced) • [Standard](#standard) • [Novel](#novel) • [To-Do](#to-do)
+**Jump to:** [Plot](#plot) • [Advanced](#advanced) • [Routine](#routine) • [Novel](#novel) • [To-Do](#to-do)
 
 **stdviz** is a Python package for standardized visualization. Advanced, routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. In short, this package provides plotting templates.
 
