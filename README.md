@@ -27,6 +27,11 @@ import stdviz
 
 Plotting methods within [stdviz/plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot) are tailored to provide quick results for staples of data visualization while at the same time including unique and novel tools. 
 
+```python
+import matplotlib.pyplot as plt
+import stdviz
+```
+
 ### Advanced
 
 Advanced standardized plots include t-SNE dimensional reduction for [Latent Dirichlet allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) models ran over a provided text corpus:
@@ -53,8 +58,7 @@ See [examples/plotting](https://github.com/andrewtavis/stdviz/blob/main/examples
 Examples of routine plotting techniques made easy are:
 
 ```python
-import matplotlib.pyplot as plt
-import stdviz
+# The following will be used for the remaining examples
 
 # German political parties
 parties = ['CDU/CSU', 'FDP', 'Greens', 'Die Linke', 'SPD', 'AfD']
@@ -170,7 +174,7 @@ ax.legend(handles=handles, labels=labels,
           frameon=True, facecolor='#ffffff', framealpha=1)
 
 ax.axes.set_title('Seat to Vote Share Disproportionality', fontsize=30)
-ax.set_xlabel('Groups', fontsize=20)
+ax.set_xlabel('Parties', fontsize=20)
 ax.set_ylabel('Percent Shift', fontsize=20)
 
 plt.show()
@@ -182,6 +186,6 @@ plt.show()
 # To-Do
 
 - Adding further plotting variations
-- Finishing accurate allocations in the semicircle variation of `stdviz.plot.parliament`
-- Finishing the coloration on the outer ring of `stdviz.plot.pie`
-- Allowing all plotting variations to be seamlessly plotted from either lists or dataframe columns
+- Finishing accurate allocations in the semicircle variation of [stdviz.plot.parliament](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/parliament)
+- Finishing the coloration on the outer ring of [stdviz.plot.pie](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/pie)
+- Allowing all plotting variations to be seamlessly plotted from either lists or dataframe columns where applicable
