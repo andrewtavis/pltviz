@@ -122,10 +122,7 @@ def dispr_bar(shares,
     ax.set_xlim([0, prev_bar_position * 1.05])
     ax.axhline(0, ls='-', color='black') # so the x-axis is distinct
     ax.set_xticks(ticks=[bar_positions[i] - (bar_widths[i] / 2.0) for i in range(len(bar_positions))])
-    if names:
-        ax.set_xticklabels(labels=[f"{names[i]} ({round(share_percents[i]/sum(share_percents),3)})" for i in range(len(bar_widths))], rotation=45)
-    else:
-        ax.set_xticklabels(labels=[f"({round(share_percents[i]/sum(share_percents),3)})" for i in range(len(bar_widths))], rotation=45)
+    ax.set_xticklabels(labels=[names[i] for i in range(len(bar_widths))])
 
     ax.set_ylim([min(disproportionality) * 1.5, max(disproportionality) * 1.5])
     ax.set_xlim([0, len(shares)])
