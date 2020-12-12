@@ -39,7 +39,7 @@ Advanced standardized plots include t-SNE dimensional reduction for [Latent Diri
 ```python
 corpus = [['corpus', 'of'], ['text', 'tokens']]
 
-fig = stdviz.plot.t_sne(dimension='both', # 3D and 2D dimensional reduction
+fig = stdviz.plot.t_sne(dimension='both', # 3D and 2D dimensional reductions
                         corpus=corpus, 
                         num_topics=10,
                         remove_3d_outliers=True)
@@ -119,8 +119,6 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/semipie.png" width="600" />
 </p>
 
-### Novel
-
 Specifically for election analysis, stdviz provides a Python only implementation of parliament plots:
 
 ```python
@@ -145,7 +143,9 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/semicircle_parliament.png" width="400" /> 
 </p>
 
-A further novel addition to social science analysis is the [disproportionality bar plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/disp_bar), which graphically depicts the disproportionality between expected and realized results. Bar widths are the proportion of shares (ex: votes received), and heights are the difference or relative difference between shares and allocations (ex: parliament seats received). 
+### Novel
+
+A novel addition to social science analysis is the [disproportionality bar plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/disp_bar), which graphically depicts the disproportionality between expected and realized results. Bar widths are the proportion of shares (ex: votes received), and heights are the difference or relative difference between shares and allocations (ex: parliament seats received). 
 
 An example follows:
 
