@@ -1,11 +1,11 @@
-# =============================================================================
-# The comparative line plot function
-#
-# Contents
-# --------
-#   0. No Class
-#       comp_line
-# =============================================================================
+"""
+The comparative line plot function
+
+Contents
+--------
+  0. No Class
+      comp_line
+"""
 
 import pandas as pd
 
@@ -16,20 +16,23 @@ from stdviz import utils
 
 default_sat = 0.95
 
-def comp_line(df=None, 
-              dependent_cols=None, 
-              indep_stats=None,
-              lctn_col=None,
-              colors=None, 
-              stacked=False, 
-              percent=False,
-              dsat=default_sat,
-              axis=None):
+
+def comp_line(
+    df=None,
+    dependent_cols=None,
+    indep_stats=None,
+    lctn_col=None,
+    colors=None,
+    stacked=False,
+    percent=False,
+    dsat=default_sat,
+    axis=None,
+):
     """
     Plots a line plot to compare statistics over a changing baseline
 
     Parameters
-    ----------            
+    ----------
         df : pd.DataFrame
             Dataframe that contains statistics to be compared
 
@@ -56,22 +59,27 @@ def comp_line(df=None,
 
         axis : str : optional (default=None)
             Adds an axis to plots so they can be combined
-        
+
     Returns
     -------
         ax : matplotlib.pyplot.subplot
             A line plot that shows the shifts in group allocations given seat limits
     """
     if colors == None:
-        sns.set_palette("deep") # default sns palette
-        colors = [utils.rgb_to_hex(c) for c in sns.color_palette(n_colors=len(df), desat=1)]
+        sns.set_palette("deep")  # default sns palette
+        colors = [
+            utils.rgb_to_hex(c) for c in sns.color_palette(n_colors=len(df), desat=1)
+        ]
 
     if type(colors) == str or type(colors) == tuple:
         colors = [colors]
 
     # Check to see if colors haven't been formatted in a prior recursive step
     if type(colors[0]) != tuple:
-        colors = [utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=default_sat) for c in colors]
+        colors = [
+            utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=default_sat)
+            for c in colors
+        ]
     sns.set_palette(colors)
 
     df_copy = df.copy()
@@ -79,12 +87,17 @@ def comp_line(df=None,
     if type(dependent_cols) == str:
         # Assume that the user is passing a single column with values corresponding to another column's
         if dependent_cols in df_copy.columns:
-            assert type(indep_stats) == str and type(df_copy[indep_stats]) == pd.Series, \
-                "A corresponding column should be passed as 'indep_stats' if 'dependent_cols' is a single df column."
-            assert lctn_col != None, "The 'lctn_col' argument must be passed if providing a single comparison column."
+            assert (
+                type(indep_stats) == str and type(df_copy[indep_stats]) == pd.Series
+            ), "A corresponding column should be passed as 'indep_stats' if 'dependent_cols' is a single df column."
+            assert (
+                lctn_col != None
+            ), "The 'lctn_col' argument must be passed if providing a single comparison column."
 
             # Create a similar form to the other path's df and recursievely run this function
-            new_indep_stats = [utils.round_if_int(float(s)) for s in df_copy[indep_stats].unique()]
+            new_indep_stats = [
+                utils.round_if_int(float(s)) for s in df_copy[indep_stats].unique()
+            ]
             # Sort the baseline stats, as they're likely years, so objective is a graph that's increasing in time
             sorted_nbs = sorted(new_indep_stats)
 
@@ -95,28 +108,37 @@ def comp_line(df=None,
             else:
                 was_sorted = 1
 
-            new_dep_cols = [str(s) + '_' + dependent_cols for s in sorted_nbs]
+            new_dep_cols = [str(s) + "_" + dependent_cols for s in sorted_nbs]
 
-            df_cols = ['locations'] + new_dep_cols
+            df_cols = ["locations"] + new_dep_cols
 
             df_new = pd.DataFrame(columns=df_cols)
-            df_new['locations'] = df_copy[lctn_col].unique()
+            df_new["locations"] = df_copy[lctn_col].unique()
 
-            for lctn in df_new['locations']:
-                df_new.loc[df_new[df_new['locations'] == lctn].index, new_dep_cols] = \
-                    df_copy.loc[df_copy[df_copy[lctn_col] == lctn].index, dependent_cols].values[::was_sorted]
+            for lctn in df_new["locations"]:
+                df_new.loc[
+                    df_new[df_new["locations"] == lctn].index, new_dep_cols
+                ] = df_copy.loc[
+                    df_copy[df_copy[lctn_col] == lctn].index, dependent_cols
+                ].values[
+                    ::was_sorted
+                ]
 
-            return comp_line(df=df_new, 
-                             dependent_cols=new_dep_cols, 
-                             indep_stats=new_indep_stats,
-                             colors=colors, 
-                             stacked=stacked, 
-                             percent=percent,
-                             dsat=dsat, 
-                             axis=axis)
+            return comp_line(
+                df=df_new,
+                dependent_cols=new_dep_cols,
+                indep_stats=new_indep_stats,
+                colors=colors,
+                stacked=stacked,
+                percent=percent,
+                dsat=dsat,
+                axis=axis,
+            )
 
         else:
-            ValueError("The 'dependent_cols' argument does not contain column names for the provided dataframe.")
+            ValueError(
+                "The 'dependent_cols' argument does not contain column names for the provided dataframe."
+            )
 
     if percent == True:
         for col in dependent_cols:
@@ -128,11 +150,11 @@ def comp_line(df=None,
             list_of_allocations = []
             for col in dependent_cols:
                 list_of_allocations.append(df_copy.loc[i, col])
-            
+
             lol_allocations.append(list_of_allocations)
 
         if axis:
-            ax = axis # to mirror seaborn axis plotting
+            ax = axis  # to mirror seaborn axis plotting
         else:
             ax = plt.subplots()[1]
 
@@ -140,11 +162,13 @@ def comp_line(df=None,
 
     else:
         for i in range(len(df_copy)):
-            ax = sns.lineplot(x=indep_stats, y=list(df_copy.loc[i, dependent_cols].values), ax=axis)
+            ax = sns.lineplot(
+                x=indep_stats, y=list(df_copy.loc[i, dependent_cols].values), ax=axis
+            )
 
     if percent == True:
         ax.set_ylim([0, 1])
-    
+
     ax.set_xlim([min(indep_stats), max(indep_stats)])
 
     return ax

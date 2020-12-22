@@ -1,11 +1,11 @@
-# =============================================================================
-# The pie plot function
-#
-# Contents
-# --------
-#   0. No Class
-#       pie
-# =============================================================================
+"""
+The pie plot function
+
+Contents
+--------
+  0. No Class
+      pie
+"""
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -18,18 +18,21 @@ from stdviz import utils
 
 default_sat = 0.95
 
-def pie(counts, 
-        names=None, 
-        faction_names=None, 
-        colors=None, 
-        radius=1, 
-        outer_ring_density=100, 
-        donut_ratio=1,
-        display_names=False, 
-        display_counts=False, 
-        label_font_size=20, 
-        dsat=default_sat, 
-        axis=None):
+
+def pie(
+    counts,
+    names=None,
+    faction_names=None,
+    colors=None,
+    radius=1,
+    outer_ring_density=100,
+    donut_ratio=1,
+    display_names=False,
+    display_counts=False,
+    label_font_size=20,
+    dsat=default_sat,
+    axis=None,
+):
     """
     Produces a donut plot of group (and faction) shares or allocations
 
@@ -70,7 +73,7 @@ def pie(counts,
 
         dsat : float : optional (default=default_sat)
             The degree of desaturation to be applied to the colors
-            
+
         axis : str : optional (default=None)
             Adds an axis to plots so they can be combined
 
@@ -80,50 +83,67 @@ def pie(counts,
             A donut plot that depicts shares or allocations (potentially including factions)
     """
     if faction_names:
-        assert list(set([type(count) for count in counts]))[0] == list \
-               and len(set([type(count) for count in counts])) == 1, \
-                "If plotting groups and their factions, then the 'counts' argument must be a list of lists, where sublists are group counts in the given faction"
+        assert (
+            list(set([type(count) for count in counts]))[0] == list
+            and len(set([type(count) for count in counts])) == 1
+        ), "If plotting groups and their factions, then the 'counts' argument must be a list of lists, where sublists are group counts in the given faction"
 
-    if list(set([type(count) for count in counts]))[0] == list \
-       and len(set([type(count) for count in counts])) == 1:
-       assert faction_names, "A list of lists has been provided for 'counts', implying that factions should also be represented, but no names for the factions have been provided "
-    
+    if (
+        list(set([type(count) for count in counts]))[0] == list
+        and len(set([type(count) for count in counts])) == 1
+    ):
+        assert (
+            faction_names
+        ), "A list of lists has been provided for 'counts', implying that factions should also be represented, but no names for the factions have been provided "
+
     if list in [type(item) for item in counts]:
         total_groups = len([item for sublist in counts for item in sublist])
     else:
         total_groups = len(counts)
 
     if colors:
-        assert len(colors) == total_groups, "The number of colors provided doesn't match the number of counts to be displayed"
+        assert (
+            len(colors) == total_groups
+        ), "The number of colors provided doesn't match the number of counts to be displayed"
 
     elif colors == None:
-        sns.set_palette("deep") # default sns palette
-        colors = [utils.rgb_to_hex(c) for c in sns.color_palette(n_colors=total_groups, desat=1)]
+        sns.set_palette("deep")  # default sns palette
+        colors = [
+            utils.rgb_to_hex(c)
+            for c in sns.color_palette(n_colors=total_groups, desat=1)
+        ]
 
     colors = [utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat) for c in colors]
     colors = [utils.rgb_to_hex(c) for c in colors]
 
     if axis:
-        ax = axis # to mirror seaborn axis plotting
+        ax = axis  # to mirror seaborn axis plotting
     else:
-        ax = plt.subplots(1,1)[1]
+        ax = plt.subplots(1, 1)[1]
 
     if faction_names:
         faction_counts = [sum(sub_list) for sub_list in counts]
 
         # Indexes for later colors
         group_indexes = list(range(total_groups))
-        factioned_indexes = utils.gen_list_of_lists(original_list=group_indexes, new_structure=[len(sublist) for sublist in counts])
+        factioned_indexes = utils.gen_list_of_lists(
+            original_list=group_indexes,
+            new_structure=[len(sublist) for sublist in counts],
+        )
 
         # Outer sections to be colored and determined by outer_ring_density
         outer_ring_sections = [1 for i in range(outer_ring_density)]
-        
+
         # Convert colors to rgb and classify them into factions
         rgb_colors = [utils.hex_to_rgb(c) for c in colors]
-        faction_colors =[[rgb_colors[i] for i in sublist] for sublist in factioned_indexes]
-        
+        faction_colors = [
+            [rgb_colors[i] for i in sublist] for sublist in factioned_indexes
+        ]
+
         # Use the Jefferson highest_average method divide the outer ring based on the proportions of the factions
-        faction_sections = highest_average(shares=faction_counts, total_alloc=len(outer_ring_sections))
+        faction_sections = highest_average(
+            shares=faction_counts, total_alloc=len(outer_ring_sections)
+        )
 
         outer_ring_colors = []
         for faction_index in range(len(faction_names)):
@@ -133,32 +153,58 @@ def pie(counts,
             if len(counts[faction_index]) == 1:
                 averaged_allocations = [faction_sections[faction_index]]
             else:
-                one_removed_allocations = [highest_average(shares=counts[faction_index][:i] + counts[faction_index][i+1:], 
-                                               total_alloc=faction_sections[faction_index]) for i in range(len(counts[faction_index]))]
-                averaged_allocations = [sum([sub_allocation[i] for sub_allocation in one_removed_allocations]) / len(one_removed_allocations) \
-                                        for i in range(len(one_removed_allocations[0]))]
-            
+                one_removed_allocations = [
+                    highest_average(
+                        shares=counts[faction_index][:i]
+                        + counts[faction_index][i + 1 :],
+                        total_alloc=faction_sections[faction_index],
+                    )
+                    for i in range(len(counts[faction_index]))
+                ]
+                averaged_allocations = [
+                    sum(
+                        [
+                            sub_allocation[i]
+                            for sub_allocation in one_removed_allocations
+                        ]
+                    )
+                    / len(one_removed_allocations)
+                    for i in range(len(one_removed_allocations[0]))
+                ]
+
             averaged_allocations = [round(i) for i in averaged_allocations]
-            
+
             # Correct in case of rounding errors
             if sum(averaged_allocations) < faction_sections[faction_index]:
-                averaged_allocations[0] += (faction_sections[faction_index] - sum(averaged_allocations))
+                averaged_allocations[0] += faction_sections[faction_index] - sum(
+                    averaged_allocations
+                )
             elif sum(averaged_allocations) > faction_sections[faction_index]:
-                averaged_allocations[0] -= (faction_sections[faction_index] - sum(averaged_allocations))
+                averaged_allocations[0] -= faction_sections[faction_index] - sum(
+                    averaged_allocations
+                )
 
             if len(faction_colors[faction_index]) == 1:
                 # Assign sole group's color via a monochrome gradient
-                outer_ring_colors.append(utils.create_color_palette(start_rgb=faction_colors[faction_index][0], 
-                                                              end_rgb=faction_colors[faction_index][0], 
-                                                              num_colors=averaged_allocations[0], 
-                                                              colorspace=sRGBColor))
+                outer_ring_colors.append(
+                    utils.create_color_palette(
+                        start_rgb=faction_colors[faction_index][0],
+                        end_rgb=faction_colors[faction_index][0],
+                        num_colors=averaged_allocations[0],
+                        colorspace=sRGBColor,
+                    )
+                )
             else:
                 # Create a gradient mix of the faction colors for the section of the outer ring
                 for color_index in range(len(faction_colors[faction_index]))[:-1]:
-                    outer_ring_colors.append(utils.create_color_palette(start_rgb=faction_colors[faction_index][color_index], 
-                                                                  end_rgb=faction_colors[faction_index][color_index+1], 
-                                                                  num_colors=averaged_allocations[color_index], 
-                                                                  colorspace=sRGBColor))               
+                    outer_ring_colors.append(
+                        utils.create_color_palette(
+                            start_rgb=faction_colors[faction_index][color_index],
+                            end_rgb=faction_colors[faction_index][color_index + 1],
+                            num_colors=averaged_allocations[color_index],
+                            colorspace=sRGBColor,
+                        )
+                    )
 
         outer_ring_colors = [item for sublist in outer_ring_colors for item in sublist]
 
@@ -167,31 +213,38 @@ def pie(counts,
 
         if display_names:
             outer_ring_labels = []
-            names = [''] * len(counts)
+            names = [""] * len(counts)
             # Place labels in the middle of the faction's arc, and make the others blank
             factions_index = 0
-            label_index = faction_counts[factions_index] / 2 # in the middle
+            label_index = faction_counts[factions_index] / 2  # in the middle
             for i in range(outer_ring_density):
                 if i == round(label_index / sum(faction_counts) * outer_ring_density):
                     if display_counts:
-                        outer_ring_labels.append(f"{faction_names[factions_index]}: {faction_counts[factions_index]}")
+                        outer_ring_labels.append(
+                            f"{faction_names[factions_index]}: {faction_counts[factions_index]}"
+                        )
                     else:
                         outer_ring_labels.append(faction_names[factions_index])
 
                     factions_index += 1
                     if factions_index < len(faction_counts):
-                        label_index += faction_counts[factions_index-1] / 2
+                        label_index += faction_counts[factions_index - 1] / 2
                         label_index += faction_counts[factions_index] / 2
                 else:
-                    outer_ring_labels.append('')
-                
+                    outer_ring_labels.append("")
+
         else:
             label_font_size = 0
-            outer_ring_labels = [''] * outer_ring_density
-            names = [''] * len(counts)
+            outer_ring_labels = [""] * outer_ring_density
+            names = [""] * len(counts)
 
-        outer_ring, _ = ax.pie(x=outer_ring_sections, radius=radius + (0.2 * radius), labels=outer_ring_labels, 
-                               colors=outer_ring_colors, textprops={'fontsize': label_font_size})
+        outer_ring, _ = ax.pie(
+            x=outer_ring_sections,
+            radius=radius + (0.2 * radius),
+            labels=outer_ring_labels,
+            colors=outer_ring_colors,
+            textprops={"fontsize": label_font_size},
+        )
         plt.setp(obj=outer_ring, width=0.3 * radius, linewidth=0)
 
     else:
@@ -199,13 +252,18 @@ def pie(counts,
             names = [f"{names[i]}: {counts[i]}" for i in range(len(names))]
         else:
             # Remove names for those that have 0 counts to avoid confusion
-            names = [names[i] if counts[i] > 0 else '' for i in range(len(names))]
+            names = [names[i] if counts[i] > 0 else "" for i in range(len(names))]
 
         if not display_names:
-            names = [''] * len(counts)
+            names = [""] * len(counts)
 
-    inner_ring, _ = ax.pie(x=counts, radius=radius, labels=names,
-                           colors=colors, textprops={'fontsize': label_font_size})
-    plt.setp(obj=inner_ring, width=radius * donut_ratio, edgecolor='white')
+    inner_ring, _ = ax.pie(
+        x=counts,
+        radius=radius,
+        labels=names,
+        colors=colors,
+        textprops={"fontsize": label_font_size},
+    )
+    plt.setp(obj=inner_ring, width=radius * donut_ratio, edgecolor="white")
 
     return ax

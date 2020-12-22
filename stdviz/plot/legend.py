@@ -1,12 +1,12 @@
-# =============================================================================
-# Functions for generating legends
-#
-# Contents
-# --------
-#   0. No Class
-#       gen_handles
-#       gen_elements
-# =============================================================================
+"""
+Functions for generating legends
+
+Contents
+--------
+  0. No Class
+      gen_handles
+      gen_elements
+"""
 
 import pandas as pd
 
@@ -17,13 +17,11 @@ from stdviz import utils
 
 default_sat = 0.95
 
-def gen_handles(colors=None, 
-                size=10, 
-                marker='o', 
-                dsat=default_sat):
+
+def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
     """
     Generates handles for plot legends
-    
+
     Parameters
     ----------
         colors : list (contains rgb strs)
@@ -46,32 +44,44 @@ def gen_handles(colors=None,
     if type(colors) == str:
         colors = [colors]
     elif colors == None:
-        sns.set_palette("deep") # default sns palette
+        sns.set_palette("deep")  # default sns palette
         colors = [utils.rgb_to_hex(c) for c in sns.color_palette()]
 
     # Marker edge colors are the same as legend boarder unless transparent RGBA
-    marker_edge_colors = [c if (len(c) == 9) and (c[-2:] == '00') else '#D2D2D3' \
-                          for c in colors]
+    marker_edge_colors = [
+        c if (len(c) == 9) and (c[-2:] == "00") else "#D2D2D3" for c in colors
+    ]
 
-    handles = [Line2D([0], [0], linestyle="none", marker=marker, markersize=size, 
-                      markeredgecolor=marker_edge_colors[i], markeredgewidth=size/10,
-                      markerfacecolor=utils.scale_saturation(rgb=colors[i], sat=dsat)) \
-                        for i in range(len(colors))]
+    handles = [
+        Line2D(
+            [0],
+            [0],
+            linestyle="none",
+            marker=marker,
+            markersize=size,
+            markeredgecolor=marker_edge_colors[i],
+            markeredgewidth=size / 10,
+            markerfacecolor=utils.scale_saturation(rgb=colors[i], sat=dsat),
+        )
+        for i in range(len(colors))
+    ]
 
     return handles
 
 
-def gen_elements(counts=None, 
-                 names=None, 
-                 colors=None, 
-                 size=10, 
-                 marker='o', 
-                 padding_indexes=None,
-                 order=None, 
-                 dsat=default_sat):
+def gen_elements(
+    counts=None,
+    names=None,
+    colors=None,
+    size=10,
+    marker="o",
+    padding_indexes=None,
+    order=None,
+    dsat=default_sat,
+):
     """
     Generates handles and labels for plot legends while allowing for label padding and reordering
-    
+
     Parameters
     ----------
         counts : list or list of lists : optional (contains ints or floats)
@@ -107,12 +117,12 @@ def gen_elements(counts=None,
     if type(colors) == str:
         colors = [colors]
     elif colors == None:
-        sns.set_palette("deep") # default sns palette
+        sns.set_palette("deep")  # default sns palette
         colors = [utils.rgb_to_hex(c) for c in sns.color_palette()]
 
     colors_copy = colors[:]
 
-    # Empty lists are returned if no arguments are passed 
+    # Empty lists are returned if no arguments are passed
     # Allows for easy experimentation with the legend
     handles = []
     labels = []
@@ -132,11 +142,11 @@ def gen_elements(counts=None,
 
         if names is not None:
             names_copy = names[:]
-        
+
         if order is not None:
             if list in [type(item) for item in order]:
                 order = [item for sublist in order for item in sublist]
-            
+
             if counts_copy is not None:
                 counts_copy = [counts_copy[i] for i in order]
             if names_copy is not None:
@@ -158,15 +168,24 @@ def gen_elements(counts=None,
                     counts_copy.insert(i, None)
                 if names_copy is not None:
                     names_copy.insert(i, None)
-                colors_copy.insert(i, '#ffffff00')
+                colors_copy.insert(i, "#ffffff00")
 
         handles = gen_handles(colors=colors_copy, size=size, marker=marker)
-        
+
         if (counts_copy is not None) and (names_copy is not None):
-            labels = [f"{names_copy[i]}: {counts_copy[i]}" if counts_copy[i] != None else '' for i in range(len(counts_copy))]
+            labels = [
+                f"{names_copy[i]}: {counts_copy[i]}" if counts_copy[i] != None else ""
+                for i in range(len(counts_copy))
+            ]
         elif (counts_copy is not None) and (names_copy is None):
-            labels = [f"{counts_copy[i]}" if counts_copy[i] != None else '' for i in range(len(counts_copy))]
+            labels = [
+                f"{counts_copy[i]}" if counts_copy[i] != None else ""
+                for i in range(len(counts_copy))
+            ]
         elif (counts_copy is None) and (names_copy is not None):
-            labels = [f"{names_copy[i]}" if names_copy[i] != None else '' for i in range(len(names_copy))]
+            labels = [
+                f"{names_copy[i]}" if names_copy[i] != None else ""
+                for i in range(len(names_copy))
+            ]
 
     return handles, labels
