@@ -4,9 +4,14 @@
 
 --------------------------------------
 
-[![PyPI Version](https://badge.fury.io/py/stdviz.svg)](https://pypi.org/project/stdviz/)
-[![Python Version](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue.svg)](https://pypi.org/project/stdviz/)
-[![GitHub](https://img.shields.io/github/license/andrewtavis/stdviz.svg)](https://github.com/andrewtavis/stdviz/blob/master/LICENSE)
+[![rtd](https://img.shields.io/readthedocs/stdviz.svg?logo=read-the-docs)](http://stdviz.readthedocs.io/en/latest/)
+[![travis](https://img.shields.io/travis/andrewtavis/stdviz.svg?logo=travis-ci)](https://travis-ci.org/andrewtavis/stdviz)
+[![codecov](https://codecov.io/gh/andrewtavis/stdviz/branch/master/graphs/badge.svg)](https://codecov.io/gh/andrewtavis/stdviz)
+[![pyversions](https://img.shields.io/pypi/pyversions/stdviz.svg?logo=python)](https://pypi.org/project/stdviz/)
+[![pypi](https://img.shields.io/pypi/v/stdviz.svg)](https://pypi.org/project/stdviz/)
+[![pypistatus](https://img.shields.io/pypi/status/stdviz.svg)](https://pypi.org/project/stdviz/)
+[![license](https://img.shields.io/github/license/andrewtavis/stdviz.svg)](https://github.com/andrewtavis/stdviz/blob/main/LICENSE)
+[![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ### Standardized vizualization in Python
 
