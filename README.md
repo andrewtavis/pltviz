@@ -54,47 +54,71 @@ seat_allocations = [26, 9, 37, 12, 23, 5]
 
 ```python
 # Bar plot options such as stacked and label bars are booleans
-ax = stdviz.plot.bar(counts=seat_allocations, names=parties,
-                     faction_names=None, colors=party_colors,
-                     horizontal=False, stacked=False,
-                     label_bars=True, axis=None)
+ax = stdviz.plot.bar(
+    counts=seat_allocations,
+    names=parties,
+    faction_names=None,
+    colors=party_colors,
+    horizontal=False,
+    stacked=False,
+    label_bars=True,
+    axis=None,
+)
 
 # Initialize empty handles and labels
 handles, labels = stdviz.plot.legend.gen_elements()
 
 # Add a majority line
-ax.axhline(int(sum(seat_allocations)/2)+1, ls='--', color='black')
-handles.insert(0, Line2D([0], [0], linestyle='--', color='black'))
-labels.insert(0, 'Majority: {} seats'.format(int(sum(seat_allocations)/2)+1))
+ax.axhline(int(sum(seat_allocations) / 2) + 1, ls="--", color="black")
+handles.insert(0, Line2D([0], [0], linestyle="--", color="black"))
+labels.insert(0, "Majority: {} seats".format(int(sum(seat_allocations) / 2) + 1))
 
-ax.legend(handles=handles, labels=labels,
-          title='Bundestag: {} seats'.format(sum(seat_allocations)),
-          loc='upper left', bbox_to_anchor=(0, 0.9),
-          title_fontsize=20, fontsize=15,
-          frameon=True, facecolor='#FFFFFF', framealpha=1)
+ax.legend(
+    handles=handles,
+    labels=labels,
+    title="Bundestag: {} seats".format(sum(seat_allocations)),
+    loc="upper left",
+    bbox_to_anchor=(0, 0.9),
+    title_fontsize=20,
+    fontsize=15,
+    frameon=True,
+    facecolor="#FFFFFF",
+    framealpha=1,
+)
 
-ax.set_ylabel('Seats', fontsize=15)
-ax.set_xlabel('Party', fontsize=15)
+ax.set_ylabel("Seats", fontsize=15)
+ax.set_xlabel("Party", fontsize=15)
 ```
 <p align="middle">
   <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/bar.png" width="600" />
 </p>
 
 ```python
-ax = stdviz.plot.semipie(counts=seat_allocations,
-                         colors=party_colors,
-                         donut_ratio=0.5)
+ax = stdviz.plot.semipie(counts=seat_allocations, colors=party_colors, donut_ratio=0.5)
 
-handles, labels = stdviz.plot.legend.gen_elements(counts=seat_allocations, names=parties,
-                                                  colors=party_colors, size=15,
-                                                  marker='o', padding_indexes=None,
-                                                  order=None)
+handles, labels = stdviz.plot.legend.gen_elements(
+    counts=seat_allocations,
+    names=parties,
+    colors=party_colors,
+    size=15,
+    marker="o",
+    padding_indexes=None,
+    order=None,
+)
 
-ax.legend(handles=handles, labels=labels,
-          title='Bundestag: {} seats'.format(sum(seat_allocations)),
-          title_fontsize=20, fontsize=14,
-          ncol=2, loc='center', bbox_to_anchor=(0.5, 0.17),
-          frameon=False, facecolor='#FFFFFF', framealpha=1)
+ax.legend(
+    handles=handles,
+    labels=labels,
+    title="Bundestag: {} seats".format(sum(seat_allocations)),
+    title_fontsize=20,
+    fontsize=14,
+    ncol=2,
+    loc="center",
+    bbox_to_anchor=(0.5, 0.17),
+    frameon=False,
+    facecolor="#FFFFFF",
+    framealpha=1,
+)
 
 plt.show()
 ```
