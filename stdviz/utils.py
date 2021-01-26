@@ -22,9 +22,6 @@ Contents
       scale_saturation
       create_color_palette
       gen_random_colors
-
-      gen_parl_points
-      swap_parl_allocations
 """
 
 import random

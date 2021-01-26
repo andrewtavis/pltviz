@@ -46,6 +46,8 @@ Installation
    :maxdepth: 2
    :caption: Contents:
 
+   plot
+   utils
    notes
 
 Project Indices

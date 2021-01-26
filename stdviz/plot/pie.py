@@ -62,7 +62,9 @@ def pie(
 
         display_names : bool : optional (default=False)
             Whether to display the names of the groups (or factions if they're included)
+
                 Note: names can only be displayed for groups or factions, faction names are if they're included
+
                 Note: if factions are included, then a legend should be used for the inner group labels (see package examples)
 
         display_counts : bool : optional (default=False)
