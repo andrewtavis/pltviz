@@ -17,7 +17,6 @@ sys.path.insert(0, os.path.abspath(".."))
 
 import stdviz
 
-
 # -- Project information -----------------------------------------------------
 
 project = "stdviz"
@@ -25,7 +24,7 @@ copyright = '2020-2021, stdviz developers (BSD License)"'
 author = "stdviz developers"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.1.4"
+release = "0.0.1.5"
 
 
 # -- General configuration ---------------------------------------------------

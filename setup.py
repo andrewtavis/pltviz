@@ -9,7 +9,7 @@ with open("README.md", "r") as fh:
 
 setup_args = dict(
     name="stdviz",
-    version="0.0.1.4",
+    version="0.0.1.5",
     author="Andrew Tavis McAllister",
     author_email="andrew.t.mcallister@gmail.com",
     classifiers=[
@@ -35,7 +35,15 @@ setup_args = dict(
     url="https://github.com/andrewtavis/stdviz",
 )
 
-install_requires = ["numpy", "scipy", "pandas", "matplotlib", "seaborn", "colormath"]
+install_requires = [
+    "numpy",
+    "scipy",
+    "pandas",
+    "matplotlib",
+    "seaborn",
+    "colormath",
+    "poli_sci_kit",
+]
 
 if __name__ == "__main__":
     setup(**setup_args, install_requires=install_requires)
