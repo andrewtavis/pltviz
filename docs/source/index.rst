@@ -33,7 +33,7 @@
 .. |contributions| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg
     :target: https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md
 
-Unsupervised keyword generation in Python
+Standardized vizualization in Python
 
 Installation
 ------------
