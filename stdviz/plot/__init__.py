@@ -4,4 +4,3 @@ from stdviz.plot.gini import gini
 from stdviz.plot import legend
 from stdviz.plot.pie import pie
 from stdviz.plot.semipie import semipie
-from stdviz.plot.t_sne import t_sne
