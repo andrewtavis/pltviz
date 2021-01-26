@@ -12,6 +12,7 @@
 [![pypistatus](https://img.shields.io/pypi/status/stdviz.svg)](https://pypi.org/project/stdviz/)
 [![license](https://img.shields.io/github/license/andrewtavis/stdviz.svg)](https://github.com/andrewtavis/stdviz/blob/main/LICENSE)
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md)
 
 ### Standardized vizualization in Python
 
