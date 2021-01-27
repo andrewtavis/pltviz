@@ -1,7 +1,7 @@
 utils
 =====
 
-The :py:mod:`utils` provides functions for standardization including feature coloration and regularization.
+The :py:mod:`utils` module provides functions for standardization including feature coloration and regularization.
 
 **Functions**
 

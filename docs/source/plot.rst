@@ -1,7 +1,7 @@
 plot
 ====
 
-The :py:mod:`plot` provides standardized versions of common Python plotting methods.
+The :py:mod:`plot` directory provides standardized versions of common Python plotting methods.
 
 **Functions**
 
