@@ -3,6 +3,7 @@ plot
 
 The :py:mod:`plot` provides standardized versions of common Python plotting methods.
 
+**Functions**
 * :py:func:`stdviz.plot.bar`
 * :py:func:`stdviz.plot.comp_line`
 * :py:func:`stdviz.plot.gini`
