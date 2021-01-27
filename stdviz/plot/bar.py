@@ -1,10 +1,9 @@
 """
-The bar plot function
+Bar Plot
+--------
 
 Contents
---------
-  0. No Class
-      bar
+    bar
 """
 
 import numpy as np

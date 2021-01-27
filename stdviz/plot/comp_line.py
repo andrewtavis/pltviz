@@ -1,10 +1,9 @@
 """
-The comparative line plot function
+Comparative Line Plot
+---------------------
 
 Contents
---------
-  0. No Class
-      comp_line
+    comp_line
 """
 
 import pandas as pd

@@ -1,11 +1,12 @@
 """
+Legend
+------
+
 Functions for generating legends
 
 Contents
---------
-  0. No Class
-      gen_handles
-      gen_elements
+    gen_handles
+    gen_elements
 """
 
 import pandas as pd

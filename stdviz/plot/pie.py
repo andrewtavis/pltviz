@@ -1,10 +1,9 @@
 """
-The pie plot function
+Pie Plot
+--------
 
 Contents
---------
-  0. No Class
-      pie
+    pie
 """
 
 import matplotlib.pyplot as plt

@@ -24,7 +24,7 @@ copyright = '2020-2021, stdviz developers (BSD License)"'
 author = "stdviz developers"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.1.5"
+release = "0.0.1.6"
 
 
 # -- General configuration ---------------------------------------------------
@@ -38,6 +38,9 @@ extensions = [
     "numpydoc",
     "sphinx.ext.viewcode",
 ]
+
+numpydoc_show_inherited_class_members = False
+numpydoc_show_class_members = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

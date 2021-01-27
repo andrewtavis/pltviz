@@ -1,10 +1,9 @@
 """
-The semipie plot function
+Semipie Plot
+------------
 
 Contents
---------
-  0. No Class
-      semipie
+    semipie
 """
 
 import matplotlib.pyplot as plt

@@ -1,4 +1,7 @@
 """
+Utilities
+---------
+
 Utility functions for general operations and coloration
 
 Note:
@@ -11,17 +14,15 @@ but is not as dark to roughly maintain input colors
 Functions here use pandas, pyplot, and seaborn, hence the need for standardization
 
 Contents
---------
-  0. No Class
-      round_if_int
-      gen_list_of_lists
-      add_num_commas
+    round_if_int
+    gen_list_of_lists
+    add_num_commas
 
-      hex_to_rgb
-      rgb_to_hex
-      scale_saturation
-      create_color_palette
-      gen_random_colors
+    hex_to_rgb
+    rgb_to_hex
+    scale_saturation
+    create_color_palette
+    gen_random_colors
 """
 
 import random

@@ -1,10 +1,9 @@
 """
-The gini plot function
+Gini Curve Plot
+---------------
 
 Contents
---------
-  0. No Class
-      gini
+    gini
 """
 
 import numpy as np
