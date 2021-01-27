@@ -4,6 +4,7 @@ utils
 The :py:mod:`utils` provides functions for standardization including feature coloration and regularization.
 
 **Functions**
+
 * :py:func:`stdviz.utils.round_if_int`
 * :py:func:`stdviz.utils.gen_list_of_lists`
 * :py:func:`stdviz.utils.add_num_commas`
