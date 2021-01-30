@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/andrewtavis/stdviz"><img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/stdviz_logo_transparent.png" width=60% height=60%></a>
+  <a href="https://github.com/andrewtavis/stdviz"><img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/stdviz_logo_transparent.png" width=75% height=75%></a>
 </div>
 
 --------------------------------------
