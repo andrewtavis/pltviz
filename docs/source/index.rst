@@ -1,6 +1,5 @@
 .. image:: https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/stdviz_logo_transparent.png
-    :width: 552
-    :height: 235
+    :scale: 60 %
     :target: https://github.com/andrewtavis/stdviz
 ============
 
@@ -33,7 +32,7 @@
 .. |contributions| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg
     :target: https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md
 
-Standardized vizualization in Python
+Standardized visualization in Python
 
 Installation
 ------------

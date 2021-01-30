@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/andrewtavis/stdviz"><img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/stdviz_logo_transparent.png" width="552" height="235"></a>
+  <a href="https://github.com/andrewtavis/stdviz"><img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/stdviz_logo_transparent.png" width=60% height=60%></a>
 </div>
 
 --------------------------------------
@@ -14,7 +14,7 @@
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md)
 
-### Standardized vizualization in Python
+### Standardized visualization in Python
 
 **Jump to:** [plot](#plot) • [To-Do](#to-do)
 

@@ -5,7 +5,7 @@ Legend
 Functions for generating legends
 
 Contents
-    gen_handles
+    gen_handles,
     gen_elements
 """
 

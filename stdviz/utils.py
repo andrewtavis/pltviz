@@ -14,14 +14,13 @@ but is not as dark to roughly maintain input colors
 Functions here use pandas, pyplot, and seaborn, hence the need for standardization
 
 Contents
-    round_if_int
-    gen_list_of_lists
-    add_num_commas
-
-    hex_to_rgb
-    rgb_to_hex
-    scale_saturation
-    create_color_palette
+    round_if_int,
+    gen_list_of_lists,
+    add_num_commas,
+    hex_to_rgb,
+    rgb_to_hex,
+    scale_saturation,
+    create_color_palette,
     gen_random_colors
 """
 
@@ -40,7 +39,19 @@ from colormath.color_conversions import convert_color
 
 
 def round_if_int(val):
-    """Rounds off the decimal of a value if it is an integer float"""
+    """
+    Rounds off the decimal of a value if it is an integer float
+
+    Parameters
+    ----------
+        val : float or int
+            A numeric value to be rounded
+
+    Retruns
+    -------
+        val : int
+            The original value rounded if applicable
+    """
     if type(val) == float:
         if val.is_integer():
             val = int(val)
@@ -49,7 +60,21 @@ def round_if_int(val):
 
 
 def gen_list_of_lists(original_list, new_structure):
-    """Generates a list of lists with a given structure from a given list"""
+    """
+    Generates a list of lists with a given structure from a given list
+
+    Parameters
+    ----------
+        original_list : list
+            The list to make into a list of lists
+
+        new_structure : list of lists (contains ints)
+
+    Returns
+    -------
+        list_of_lists : list of lists
+            The original list with elements organized with the given structure
+    """
     assert len(original_list) == sum(
         new_structure
     ), "The number of elements in the original list and desired structure don't match"
@@ -63,7 +88,19 @@ def gen_list_of_lists(original_list, new_structure):
 
 
 def add_num_commas(num):
-    """Adds commas to a numeric string for readability"""
+    """
+    Adds commas to a numeric string for readability
+
+    Parameters
+    ----------
+        num : int or float
+            A number to have commas added to
+
+    Retruns
+    -------
+        str_with_commas : str
+            The original number with commas to make it more readable
+    """
     num_str = str(num)
     num_str_no_decimal = num_str.split(".")[0]
     if "." in num_str:
@@ -91,37 +128,82 @@ def add_num_commas(num):
 
 
 def hex_to_rgb(hex_rep):
-    """Converts a hexidecimal representation to its RGB ratios"""
-    return sRGBColor(
+    """
+    Converts a hexadecimal representation to its RGB ratios
+
+    Parameters
+    ----------
+        hex_rep : str
+            The hex representation of the color
+
+    Returns
+    -------
+        rgb_trip : tuple
+            An RGB tuple color representation
+    """
+    rgb_trip = sRGBColor(
         *[int(hex_rep[i + 1 : i + 3], 16) for i in (0, 2, 4)], is_upscaled=True
     )
+    return rgb_trip
 
 
 def rgb_to_hex(rgb_trip):
-    """Converts rgb ratios to their hexidecimal representation"""
+    """
+    Converts rgb ratios to their hexadecimal representation
+
+    Parameters
+    ----------
+        rgb_trip : tuple
+            An RGB tuple color representation
+
+    Returns
+    -------
+        hex_rep : str
+            The hex representation of the color
+    """
     trip_0, trip_1, trip_2 = rgb_trip[0], rgb_trip[1], rgb_trip[2]
     if type(trip_0) == float or np.float64:
         trip_0 *= 255
         trip_1 *= 255
         trip_2 *= 255
-    return "#%02x%02x%02x" % (int(trip_0), int(trip_1), int(trip_2))
+
+    hex_rep = "#%02x%02x%02x" % (int(trip_0), int(trip_1), int(trip_2))
+
+    return hex_rep
 
 
-def scale_saturation(rgb, sat):
-    """Changs the saturation of an rgb color"""
-    if (type(rgb) == str) and (len(rgb) == 9) and (rgb[-2:] == "00"):
+def scale_saturation(rgb_trip, sat):
+    """
+    Changes the saturation of an rgb color
+
+    Parameters
+    ----------
+        rgb_trip : tuple
+            An RGB tuple color representation
+
+        sat : float
+            The saturation it rgb_trip should be modified by
+
+    Returns
+    -------
+        saturated_rgb : tuple
+            colorsys.hls_to_rgb saturation of the given color
+    """
+    if (type(rgb_trip) == str) and (len(rgb_trip) == 9) and (rgb_trip[-2:] == "00"):
         # An RGBA has been provided and its alpha is 00, so return it for a transparent marker
-        return rgb
+        return rgb_trip
 
-    if (type(rgb) == str) and (len(rgb) == 7):
-        rgb = hex_to_rgb(rgb)
+    if (type(rgb_trip) == str) and (len(rgb_trip) == 7):
+        rgb = hex_to_rgb(rgb_trip)
 
-    if type(rgb) == sRGBColor:
+    if type(rgb_trip) == sRGBColor:
         rgb = rgb.get_value_tuple()
 
-    h, l, s = colorsys.rgb_to_hls(*rgb)
+    h, l, s = colorsys.rgb_to_hls(*rgb_trip)
 
-    return colorsys.hls_to_rgb(h, min(1, l * sat), s=s)
+    saturated_rgb = colorsys.hls_to_rgb(h, min(1, l * sat), s=s)
+
+    return saturated_rgb
 
 
 def create_color_palette(start_rgb, end_rgb, num_colors, colorspace):
