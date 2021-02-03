@@ -1,6 +1,6 @@
 .. image:: https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/stdviz_logo_transparent.png
-    :width: 407
-    :height: 131
+    :width: 488
+    :height: 157
     :align: center
     :target: https://github.com/andrewtavis/stdviz
 ============
