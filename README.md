@@ -20,7 +20,7 @@
 [//]: # "The '-' after the section links is needed to make them work on GH (because of ↩s)"
 **Jump to:**<a id="jumpto"></a> [plot](#plot-) • [To-Do](#to-do-)
 
-**stdviz** is a Python package for standardized visualization. Advanced, routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for exact colors across plots and to assure that all functions can be ran with color hexes.
+**stdviz** is a Python package for standardized visualization. Routine plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
 # Installation via PyPi
 ```bash
