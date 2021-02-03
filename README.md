@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/andrewtavis/stdviz"><img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/stdviz_logo_transparent.png" width=75% height=75%></a>
+  <a href="https://github.com/andrewtavis/stdviz"><img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/stdviz_logo_transparent.png" width=407 height=131></a>
 </div>
 
 --------------------------------------
@@ -13,10 +13,12 @@
 [![license](https://img.shields.io/github/license/andrewtavis/stdviz.svg)](https://github.com/andrewtavis/stdviz/blob/main/LICENSE)
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md)
+[![coc](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://github.com/andrewtavis/stdviz/blob/main/.github/CODE_OF_CONDUCT.md)
 
 ### Standardized visualization in Python
 
-**Jump to:** [plot](#plot) • [To-Do](#to-do)
+[//]: # "The '-' after the section links is needed to make them work on GH (because of ↩s)"
+**Jump to:**<a id="jumpto"></a> [plot](#plot-) • [To-Do](#to-do-)
 
 **stdviz** is a Python package for standardized visualization. Advanced, routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for exact colors across plots and to assure that all functions can be ran with color hexes.
 
@@ -29,7 +31,7 @@ pip install stdviz
 import stdviz
 ```
 
-# plot
+# plot [`↩`](#jumpto)
 
 Plotting methods within [stdviz/plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot) are tailored to provide quick results for staples of data visualization.
 
@@ -128,7 +130,7 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/semipie.png" width="600" />
 </p>
 
-# To-Do
+# To-Do [`↩`](#jumpto)
 
 - Adding further plotting variations
 - Finishing the coloration on the outer ring of [stdviz.plot.pie](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/pie)

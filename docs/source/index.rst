@@ -1,9 +1,11 @@
 .. image:: https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/stdviz_logo_transparent.png
-    :scale: 75 %
+    :width: 407
+    :height: 131
+    :align: center
     :target: https://github.com/andrewtavis/stdviz
 ============
 
-|rtd| |travis| |codecov| |pyversions| |pypi| |pypistatus| |license| |codestyle| |contributions|
+|rtd| |travis| |codecov| |pyversions| |pypi| |pypistatus| |license| |codestyle| |contributions| |coc|
 
 .. |rtd| image:: https://img.shields.io/readthedocs/stdviz.svg?logo=read-the-docs
     :target: http://stdviz.readthedocs.io/en/latest/
@@ -31,6 +33,9 @@
 
 .. |contributions| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg
     :target: https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md
+
+.. |coc| image:: https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg
+    :target: https://github.com/andrewtavis/kwx/blob/main/.github/CODE_OF_CONDUCT.md
 
 Standardized visualization in Python
 
