@@ -132,6 +132,6 @@ plt.show()
 
 # To-Do [`↩`](#jumpto)
 
-- Adding further plotting variations
+- Adding further plotting standardizations
 - Finishing the coloration on the outer ring of [stdviz.plot.pie](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/pie)
 - Allowing all plotting variations to be seamlessly plotted from either lists or dataframe columns where applicable
