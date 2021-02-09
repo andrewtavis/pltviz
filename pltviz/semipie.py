@@ -11,7 +11,7 @@ import matplotlib.patches as mpatches
 from matplotlib.collections import PatchCollection
 import seaborn as sns
 
-from stdviz import utils
+from pltviz import utils
 
 default_sat = 0.95
 

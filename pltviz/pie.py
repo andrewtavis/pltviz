@@ -13,7 +13,7 @@ from colormath.color_objects import sRGBColor
 
 from poli_sci_kit.appointment.methods import highest_average
 
-from stdviz import utils
+from pltviz import utils
 
 default_sat = 0.95
 

@@ -11,7 +11,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from stdviz import utils
+from pltviz import utils
 
 default_sat = 0.95
 
