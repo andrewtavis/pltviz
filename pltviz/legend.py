@@ -14,7 +14,7 @@ import pandas as pd
 from matplotlib.lines import Line2D
 import seaborn as sns
 
-from stdviz import utils
+from pltviz import utils
 
 default_sat = 0.95
 
