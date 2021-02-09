@@ -15,16 +15,16 @@ import sys
 
 sys.path.insert(0, os.path.abspath(".."))
 
-import stdviz
+import pltviz
 
 # -- Project information -----------------------------------------------------
 
-project = "stdviz"
-copyright = '2020-2021, stdviz developers (BSD License)"'
-author = "stdviz developers"
+project = "pltviz"
+copyright = '2020-2021, pltviz developers (BSD License)"'
+author = "pltviz developers"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.1.6"
+release = "0.0.1.1"
 
 
 # -- General configuration ---------------------------------------------------
@@ -91,7 +91,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "stdviz_doc"
+htmlhelp_basename = "pltviz_doc"
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -115,13 +115,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (
-        master_doc,
-        "stdviz.tex",
-        "stdviz Documentation",
-        "andrewtavis",
-        "manual",
-    )
+    (master_doc, "pltviz.tex", "pltviz Documentation", "andrewtavis", "manual",)
 ]
 
 
@@ -129,7 +123,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "stdviz", "stdviz Documentation", [author], 1)]
+man_pages = [(master_doc, "pltviz", "pltviz Documentation", [author], 1)]
 
 
 # -- Options for Texinfo output -------------------------------------------
@@ -140,10 +134,10 @@ man_pages = [(master_doc, "stdviz", "stdviz Documentation", [author], 1)]
 texinfo_documents = [
     (
         master_doc,
-        "stdviz",
-        "stdviz Documentation",
+        "pltviz",
+        "pltviz Documentation",
         author,
-        "stdviz",
+        "pltviz",
         "Unsupervised keyword generation in Python",
         "Miscellaneous",
     )
