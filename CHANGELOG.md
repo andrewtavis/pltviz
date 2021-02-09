@@ -1,6 +1,6 @@
-### stdviz 0.0.1.2 (Dec 10, 2020
+### pltviz 0.0.1 (Dec 10, 2020)
 
-The minimum viable product of stdviz:
+The minimum viable product of pltviz:
 
 - Users are able to plot in various advanced, routine, and novel styles
 
@@ -10,4 +10,4 @@ The minimum viable product of stdviz:
 
 - Legend generation provides full control to the user
 
-- Examples have been provided to show usage cases)
+- Examples have been provided to show usage cases

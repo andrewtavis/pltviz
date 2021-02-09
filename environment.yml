@@ -1,6 +1,6 @@
 # This file may be used to create an environment using:
 # conda env create -f environment.yml
-name: stdviz-dev
+name: pltviz-dev
 channels:
   - anaconda
   - conda-forge
@@ -76,4 +76,4 @@ dependencies:
     - decorator==4.4.2
     - networkx==2.5
     - poli-sci-kit==0.0.3
-    - stdviz==0.0.1.6
+    - pltviz==0.0.1

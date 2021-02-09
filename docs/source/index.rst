@@ -1,38 +1,38 @@
-.. image:: https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/stdviz_logo_transparent.png
+.. image:: https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/pltviz_logo_transparent.png
     :width: 488
     :height: 157
     :align: center
-    :target: https://github.com/andrewtavis/stdviz
+    :target: https://github.com/andrewtavis/pltviz
 ============
 
 |rtd| |travis| |codecov| |pyversions| |pypi| |pypistatus| |license| |codestyle| |contributions| |coc|
 
-.. |rtd| image:: https://img.shields.io/readthedocs/stdviz.svg?logo=read-the-docs
-    :target: http://stdviz.readthedocs.io/en/latest/
+.. |rtd| image:: https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs
+    :target: http://pltviz.readthedocs.io/en/latest/
 
-.. |travis| image:: https://img.shields.io/travis/andrewtavis/stdviz.svg?logo=travis-ci
-    :target: https://travis-ci.org/andrewtavis/stdviz
+.. |travis| image:: https://img.shields.io/travis/com/andrewtavis/pltviz.svg?logo=travis-ci
+    :target: https://travis-ci.org/andrewtavis/pltviz
 
-.. |codecov| image:: https://codecov.io/gh/andrewtavis/stdviz/branch/master/graphs/badge.svg
-    :target: https://codecov.io/gh/andrewtavis/stdviz
+.. |codecov| image:: https://codecov.io/gh/andrewtavis/pltviz/branch/main/graphs/badge.svg
+    :target: https://codecov.io/gh/andrewtavis/pltviz
 
-.. |pyversions| image:: https://img.shields.io/pypi/pyversions/stdviz.svg?logo=python
-    :target: https://pypi.org/project/stdviz/
+.. |pyversions| image:: https://img.shields.io/pypi/pyversions/pltviz.svg?logo=python
+    :target: https://pypi.org/project/pltviz/
 
-.. |pypi| image:: https://badge.fury.io/py/stdviz.svg
-    :target: https://pypi.org/project/stdviz/
+.. |pypi| image:: https://badge.fury.io/py/pltviz.svg
+    :target: https://pypi.org/project/pltviz/
 
-.. |pypistatus| image:: https://img.shields.io/pypi/status/stdviz.svg
-    :target: https://pypi.org/project/stdviz/
+.. |pypistatus| image:: https://img.shields.io/pypi/status/pltviz.svg
+    :target: https://pypi.org/project/pltviz/
 
-.. |license| image:: https://img.shields.io/github/license/andrewtavis/stdviz.svg
-    :target: https://github.com/andrewtavis/stdviz/blob/main/LICENSE
+.. |license| image:: https://img.shields.io/github/license/andrewtavis/pltviz.svg
+    :target: https://github.com/andrewtavis/pltviz/blob/main/LICENSE
 
 .. |codestyle| image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
 
 .. |contributions| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg
-    :target: https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md
+    :target: https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md
 
 .. |coc| image:: https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg
     :target: https://github.com/andrewtavis/kwx/blob/main/.github/CODE_OF_CONDUCT.md
@@ -43,11 +43,11 @@ Installation
 ------------
 .. code-block:: shell
 
-    pip install stdviz
+    pip install pltviz
 
 .. code-block:: python
 
-    import stdviz
+    import pltviz
 
 .. toctree::
    :maxdepth: 2

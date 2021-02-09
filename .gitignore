@@ -22,7 +22,7 @@ __pycache__
 .venv
 env
 venv
-stdviz-dev
+pltviz-dev
 
 # Display files
 ###############

@@ -8,8 +8,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup_args = dict(
-    name="stdviz",
-    version="0.0.1.6",
+    name="pltviz",
+    version="0.0.1.1",
     author="Andrew Tavis McAllister",
     author_email="andrew.t.mcallister@gmail.com",
     classifiers=[
@@ -20,8 +20,6 @@ setup_args = dict(
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
@@ -32,10 +30,11 @@ setup_args = dict(
     long_description_content_type="text/markdown",
     packages=find_namespace_packages(),
     license="new BSD",
-    url="https://github.com/andrewtavis/stdviz",
+    url="https://github.com/andrewtavis/pltviz",
 )
 
 install_requires = [
+    "pytest-cov",
     "numpy",
     "scipy",
     "pandas",

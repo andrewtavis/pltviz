@@ -1,20 +1,20 @@
 plot
 ====
 
-The :py:mod:`plot` directory provides standardized versions of common Python plotting methods.
+:py:mod:`pltviz` provides standardized versions of common Python plotting methods.
 
 **Functions**
 
-* :py:func:`stdviz.plot.bar`
-* :py:func:`stdviz.plot.comp_line`
-* :py:func:`stdviz.plot.gini`
-* :py:func:`stdviz.plot.legend`
-* :py:func:`stdviz.plot.pie`
-* :py:func:`stdviz.plot.semipie`
+* :py:func:`pltviz.bar`
+* :py:func:`pltviz.comp_line`
+* :py:func:`pltviz.gini`
+* :py:func:`pltviz.legend`
+* :py:func:`pltviz.pie`
+* :py:func:`pltviz.semipie`
 
-.. autofunction:: stdviz.plot.bar
-.. autofunction:: stdviz.plot.comp_line
-.. autofunction:: stdviz.plot.gini
-.. autofunction:: stdviz.plot.legend
-.. autofunction:: stdviz.plot.pie
-.. autofunction:: stdviz.plot.semipie
+.. autofunction:: pltviz.bar
+.. autofunction:: pltviz.comp_line
+.. autofunction:: pltviz.gini
+.. autofunction:: pltviz.legend
+.. autofunction:: pltviz.pie
+.. autofunction:: pltviz.semipie

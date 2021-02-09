@@ -1,45 +1,45 @@
 <div align="center">
-  <a href="https://github.com/andrewtavis/stdviz"><img src="https://raw.githubusercontent.com/andrewtavis/stdviz/master/resources/stdviz_logo_transparent.png" width=488 height=157></a>
+  <a href="https://github.com/andrewtavis/pltviz"><img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/pltviz_logo_transparent.png" width=488 height=157></a>
 </div>
 
 --------------------------------------
 
-[![rtd](https://img.shields.io/readthedocs/stdviz.svg?logo=read-the-docs)](http://stdviz.readthedocs.io/en/latest/)
-[![travis](https://img.shields.io/travis/andrewtavis/stdviz.svg?logo=travis-ci)](https://travis-ci.org/andrewtavis/stdviz)
-[![codecov](https://codecov.io/gh/andrewtavis/stdviz/branch/master/graphs/badge.svg)](https://codecov.io/gh/andrewtavis/stdviz)
-[![pyversions](https://img.shields.io/pypi/pyversions/stdviz.svg?logo=python)](https://pypi.org/project/stdviz/)
-[![pypi](https://img.shields.io/pypi/v/stdviz.svg)](https://pypi.org/project/stdviz/)
-[![pypistatus](https://img.shields.io/pypi/status/stdviz.svg)](https://pypi.org/project/stdviz/)
-[![license](https://img.shields.io/github/license/andrewtavis/stdviz.svg)](https://github.com/andrewtavis/stdviz/blob/main/LICENSE)
+[![rtd](https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs)](http://pltviz.readthedocs.io/en/latest/)
+[![travis](https://img.shields.io/travis/com/andrewtavis/pltviz.svg?logo=travis-ci)](https://travis-ci.com/andrewtavis/pltviz)
+[![codecov](https://codecov.io/gh/andrewtavis/pltviz/branch/main/graphs/badge.svg)](https://codecov.io/gh/andrewtavis/pltviz)
+[![pyversions](https://img.shields.io/pypi/pyversions/pltviz.svg?logo=python)](https://pypi.org/project/pltviz/)
+[![pypi](https://img.shields.io/pypi/v/pltviz.svg)](https://pypi.org/project/pltviz/)
+[![pypistatus](https://img.shields.io/pypi/status/pltviz.svg)](https://pypi.org/project/pltviz/)
+[![license](https://img.shields.io/github/license/andrewtavis/pltviz.svg)](https://github.com/andrewtavis/pltviz/blob/main/LICENSE)
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/stdviz/blob/main/CONTRIBUTING.md)
-[![coc](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://github.com/andrewtavis/stdviz/blob/main/.github/CODE_OF_CONDUCT.md)
+[![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md)
+[![coc](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CODE_OF_CONDUCT.md)
 
 ### Standardized visualization in Python
 
 [//]: # "The '-' after the section links is needed to make them work on GH (because of ↩s)"
 **Jump to:**<a id="jumpto"></a> [plot](#plot-) • [To-Do](#to-do-)
 
-**stdviz** is a Python package for standardized visualization. Routine plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
+**pltviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
 # Installation via PyPi
 ```bash
-pip install stdviz
+pip install pltviz
 ```
 
 ```python
-import stdviz
+import pltviz
 ```
 
 # plot [`↩`](#jumpto)
 
-Plotting methods within [stdviz/plot](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot) are tailored to provide quick results for staples of data visualization.
+Plotting methods within [pltviz](https://github.com/andrewtavis/pltviz/tree/main/pltviz) are tailored to provide quick results for staples of data visualization.
 
-See [examples/plot](https://github.com/andrewtavis/stdviz/blob/main/examples/plot.ipynb) for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas.
+See [examples/plot](https://github.com/andrewtavis/pltviz/blob/main/examples/plot.ipynb) for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas.
 
 ```python
 import matplotlib.pyplot as plt
-import stdviz
+import pltviz
 ```
 
 Examples of routine plotting techniques made easy are:
@@ -57,7 +57,7 @@ seat_allocations = [26, 9, 37, 12, 23, 5]
 
 ```python
 # Bar plot options such as stacked and label bars are booleans
-ax = stdviz.plot.bar(
+ax = pltviz.bar(
     counts=seat_allocations,
     names=parties,
     faction_names=None,
@@ -69,7 +69,7 @@ ax = stdviz.plot.bar(
 )
 
 # Initialize empty handles and labels
-handles, labels = stdviz.plot.legend.gen_elements()
+handles, labels = pltviz.legend.gen_elements()
 
 # Add a majority line
 ax.axhline(int(sum(seat_allocations) / 2) + 1, ls="--", color="black")
@@ -93,13 +93,13 @@ ax.set_ylabel("Seats", fontsize=15)
 ax.set_xlabel("Party", fontsize=15)
 ```
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/bar.png" width="600" />
+  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/bar.png" width="600" />
 </p>
 
 ```python
-ax = stdviz.plot.semipie(counts=seat_allocations, colors=party_colors, donut_ratio=0.5)
+ax = pltviz.semipie(counts=seat_allocations, colors=party_colors, donut_ratio=0.5)
 
-handles, labels = stdviz.plot.legend.gen_elements(
+handles, labels = pltviz.legend.gen_elements(
     counts=seat_allocations,
     names=parties,
     colors=party_colors,
@@ -127,11 +127,11 @@ plt.show()
 ```
 
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/stdviz/main/resources/gh_images/semipie.png" width="600" />
+  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/semipie.png" width="600" />
 </p>
 
 # To-Do [`↩`](#jumpto)
 
 - Adding further plotting standardizations
-- Finishing the coloration on the outer ring of [stdviz.plot.pie](https://github.com/andrewtavis/stdviz/tree/main/stdviz/plot/pie)
+- Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/pltviz/plot/pie)
 - Allowing all plotting variations to be seamlessly plotted from either lists or dataframe columns where applicable
