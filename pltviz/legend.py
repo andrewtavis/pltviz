@@ -39,7 +39,7 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
 
     Returns
     -------
-        handles : list (countains unplotted 2D lines)
+        lgnd_handles : list (countains unplotted 2D lines)
             A list of lines, the handles of which can be used for more advanced plots
     """
     if type(colors) == str:
@@ -53,7 +53,7 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
         c if (len(c) == 9) and (c[-2:] == "00") else "#D2D2D3" for c in colors
     ]
 
-    handles = [
+    lgnd_handles = [
         Line2D(
             [0],
             [0],
@@ -62,12 +62,12 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
             markersize=size,
             markeredgecolor=marker_edge_colors[i],
             markeredgewidth=size / 10,
-            markerfacecolor=utils.scale_saturation(rgb=colors[i], sat=dsat),
+            markerfacecolor=utils.scale_saturation(rgb_trip=colors[i], sat=dsat),
         )
         for i in range(len(colors))
     ]
 
-    return handles
+    return lgnd_handles
 
 
 def gen_elements(
@@ -87,7 +87,6 @@ def gen_elements(
     ----------
         counts : list or list of lists : optional (contains ints or floats)
             The data to be plotted
-            Note: a list of lists produces a stacked plot where sublists define factions to be stacked
 
         labels : list : optional (default=None; contains strs)
             The labels of the groups
@@ -112,7 +111,7 @@ def gen_elements(
 
     Returns
     -------
-        handles, labels: list (countains unplotted 2D lines) and list (contains strs)
+        lgnd_handles, lgnd_labels: list (countains unplotted 2D lines) and list (contains strs)
             A list of lines, the handles of which can be used for more advanced plots, as well as labels for the handles
     """
     if type(colors) == str:
@@ -125,8 +124,8 @@ def gen_elements(
 
     # Empty lists are returned if no arguments are passed
     # Allows for easy experimentation with the legend
-    handles = []
-    labels = []
+    lgnd_handles = []
+    lgnd_labels = []
     if (counts is not None) or (labels is not None):
         # Create 'None' copies to assure originals aren't altered
         counts_copy = None
@@ -171,22 +170,22 @@ def gen_elements(
                     labels_copy.insert(i, None)
                 colors_copy.insert(i, "#ffffff00")
 
-        handles = gen_handles(colors=colors_copy, size=size, marker=marker)
+        lgnd_handles = gen_handles(colors=colors_copy, size=size, marker=marker)
 
         if (counts_copy is not None) and (labels_copy is not None):
-            labels = [
+            lgnd_labels = [
                 f"{labels_copy[i]}: {counts_copy[i]}" if counts_copy[i] != None else ""
                 for i in range(len(counts_copy))
             ]
         elif (counts_copy is not None) and (labels_copy is None):
-            labels = [
+            lgnd_labels = [
                 f"{counts_copy[i]}" if counts_copy[i] != None else ""
                 for i in range(len(counts_copy))
             ]
         elif (counts_copy is None) and (labels_copy is not None):
-            labels = [
+            lgnd_labels = [
                 f"{labels_copy[i]}" if labels_copy[i] != None else ""
                 for i in range(len(labels_copy))
             ]
 
-    return handles, labels
+    return lgnd_handles, lgnd_labels

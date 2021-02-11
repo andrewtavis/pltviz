@@ -114,7 +114,9 @@ def pie(
             for c in sns.color_palette(n_colors=total_groups, desat=1)
         ]
 
-    colors = [utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat) for c in colors]
+    colors = [
+        utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat) for c in colors
+    ]
     colors = [utils.rgb_to_hex(c) for c in colors]
 
     if axis:
@@ -247,6 +249,9 @@ def pie(
             textprops={"fontsize": label_font_size},
         )
         plt.setp(obj=outer_ring, width=0.3 * radius, linewidth=0)
+
+    if labels == None:
+        labels = [f"group_{i}" for i in range(len(counts))]
 
     else:
         if display_counts:

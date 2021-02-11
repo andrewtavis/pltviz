@@ -153,7 +153,7 @@ def bar(
                 )
                 pivot_plot = pivot_plot[labels]
                 colors = [
-                    utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
+                    utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
                 ]
 
@@ -191,7 +191,7 @@ def bar(
         else:
             if list not in [type(i) for i in counts]:
                 colors = [
-                    utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
+                    utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
                 ]
                 sns.set_palette(colors)
@@ -219,7 +219,7 @@ def bar(
                 ]
 
                 scaled_colors = [
-                    utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
+                    utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
                 ]
 
@@ -271,7 +271,7 @@ def bar(
                 )
                 pivot_plot = pivot_plot[labels]
                 colors = [
-                    utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
+                    utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
                 ]
 
@@ -308,7 +308,7 @@ def bar(
         else:
             if list not in [type(i) for i in counts]:
                 colors = [
-                    utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
+                    utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
                 ]
                 sns.set_palette(colors)
@@ -336,7 +336,7 @@ def bar(
                 ]
 
                 scaled_colors = [
-                    utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
+                    utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
                 ]
 

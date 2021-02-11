@@ -54,7 +54,9 @@ def semipie(counts, colors=None, donut_ratio=1, dsat=default_sat, axis=None):
             for c in sns.color_palette(n_colors=len(counts), desat=1)
         ]
 
-    colors = [utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat) for c in colors]
+    colors = [
+        utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=dsat) for c in colors
+    ]
     sns.set_palette(colors)
 
     if axis:
