@@ -64,17 +64,17 @@ party_colors = ['#000000', '#ffed00', '#64a12d', '#be3075', '#eb001f', '#009ee0'
 seat_allocations = [26, 9, 37, 12, 23, 5]
 ```
 
+The following shows [pltviz.bar](https://github.com/andrewtavis/pltviz/blob/main/pltviz/bar.py) that allows all common options to be selected as binaries:
+
 ```python
 # Bar plot options such as stacked and label bars are booleans
 ax = pltviz.bar(
     counts=seat_allocations,
     labels=parties,
-    faction_labels=None,
     colors=party_colors,
     horizontal=False,
     stacked=False,
     label_bars=True,
-    axis=None,
 )
 
 # Initialize empty handles and labels
@@ -105,6 +105,8 @@ ax.set_xlabel("Party", fontsize=15)
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/bar.png" width="600" />
 </p>
 
+Also included is a [pltviz.semipie](https://github.com/andrewtavis/pltviz/blob/main/pltviz/semipie.py) via matplotlib artists for cases where a simple and condensed plot is needed:
+
 ```python
 ax = pltviz.semipie(counts=seat_allocations, colors=party_colors, donut_ratio=0.5)
 
@@ -112,10 +114,6 @@ handles, labels = pltviz.legend.gen_elements(
     counts=seat_allocations,
     labels=parties,
     colors=party_colors,
-    size=15,
-    marker="o",
-    padding_indexes=None,
-    order=None,
 )
 
 ax.legend(
@@ -139,8 +137,38 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/semipie.png" width="600" />
 </p>
 
+pltviz also includes specialized plots such as [pltviz.gini](https://github.com/andrewtavis/pltviz/blob/main/pltviz/gini.py) to visualize [gini coefficients](https://en.wikipedia.org/wiki/Gini_coefficient) of inequality:
+
+```python
+global_gdp_deciles = [0.49, 0.59, 0.69, 0.79, 1.89, 2.55, 5.0, 10.0, 18.0, 60.0]
+
+ax, gini_coeff = pltviz.gini(shares=global_gdp_deciles)
+
+handles, labels = pltviz.legend.gen_elements(labels=["Lorenz Curve", "Perfect Equality"])
+
+ax.legend(
+    handles=handles,
+    labels=labels,
+    loc='upper left',
+    bbox_to_anchor=(0, 0.9),
+    fontsize=20,
+    frameon=True,
+    facecolor='#FFFFFF',
+    framealpha=1)
+
+ax.set_title(f'Gini: {gini_coeff}', fontsize=20)
+ax.set_ylabel('Cuumlative Share of Global GDP', fontsize=15)
+ax.set_xlabel('Income Deciles', fontsize=15)
+
+plt.show()
+```
+
+<p align="middle">
+  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/gini.png" width="600" />
+</p>
+
 # To-Do [`↩`](#jumpto)
 
-- Adding further plotting standardizations
+- Adding standardized examples of further plots and visualizations
 - Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/pltviz/plot/pie)
 - Allowing all plotting variations to be seamlessly plotted from either lists or dataframe columns where applicable

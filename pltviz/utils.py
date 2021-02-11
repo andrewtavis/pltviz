@@ -194,10 +194,10 @@ def scale_saturation(rgb_trip, sat):
         return rgb_trip
 
     if (type(rgb_trip) == str) and (len(rgb_trip) == 7):
-        rgb = hex_to_rgb(rgb_trip)
+        rgb_trip = hex_to_rgb(rgb_trip)
 
     if type(rgb_trip) == sRGBColor:
-        rgb = rgb.get_value_tuple()
+        rgb_trip = rgb_trip.get_value_tuple()
 
     h, l, s = colorsys.rgb_to_hls(*rgb_trip)
 
@@ -272,8 +272,7 @@ def gen_random_colors(num_groups, colors=None):
         colors = []
 
     if len(colors) < num_groups:
-        new_colors = []
-        while len(new_colors) < num_groups:
+        while len(colors) < num_groups:
             random_rgba = (
                 random.random(),
                 random.random(),
@@ -281,17 +280,12 @@ def gen_random_colors(num_groups, colors=None):
                 random.random(),
             )
 
-            new_colors.append(random_rgba)
+            colors.append(random_rgba)
 
-        sns.set_palette(colors + new_colors)
+        sns.set_palette(colors)
 
-        if type(new_colors[0][0]) == float:
+        if type(colors[0][0]) == float:
             # Convert over for non-sns use
-            new_colors = [
-                mpl.colors.to_hex([c[0], c[1], c[2]]).upper() for c in new_colors
-            ]
+            colors = [mpl.colors.to_hex([c[0], c[1], c[2]]).upper() for c in colors]
 
-        return colors + new_colors
-
-    else:
-        return colors
+    return colors

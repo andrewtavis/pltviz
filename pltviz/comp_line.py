@@ -20,7 +20,7 @@ def comp_line(
     df=None,
     dependent_cols=None,
     indep_stats=None,
-    lctn_col=None,
+    group_col=None,
     colors=None,
     stacked=False,
     percent=False,
@@ -35,14 +35,16 @@ def comp_line(
         df : pd.DataFrame
             Dataframe that contains statistics to be compared
 
-        dependent_cols : str or list (countains strs) (default=None)
+        dependent_cols : str or list (contains strs) (default=None)
             The column(s) in df which should be compared
 
-        indep_stats : str or list (countains ints or floats) (default=None)
+        indep_stats : str or list (contains ints or floats) (default=None)
             A df column or the baseline stats that generated the columns in dependent_cols
 
-        lctn_col : str (default=None)
-            The name of the column in which the locations are defined
+        group_col : str (default=None)
+            The name of the column in which groups are defined
+
+            Note: this allows plotting across multiple instances in a single column
 
         colors : list or list of lists : optional (default=None)
             The colors of the groups as hex keys
@@ -76,7 +78,7 @@ def comp_line(
     # Check to see if colors haven't been formatted in a prior recursive step
     if type(colors[0]) != tuple:
         colors = [
-            utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=default_sat)
+            utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=default_sat)
             for c in colors
         ]
     sns.set_palette(colors)
@@ -90,10 +92,10 @@ def comp_line(
                 type(indep_stats) == str and type(df_copy[indep_stats]) == pd.Series
             ), "A corresponding column should be passed as 'indep_stats' if 'dependent_cols' is a single df column."
             assert (
-                lctn_col != None
-            ), "The 'lctn_col' argument must be passed if providing a single comparison column."
+                group_col != None
+            ), "The 'group_col' argument must be passed if providing a single comparison column."
 
-            # Create a similar form to the other path's df and recursievely run this function
+            # Create a similar form to the other path's df and recursively run this function
             new_indep_stats = [
                 utils.round_if_int(float(s)) for s in df_copy[indep_stats].unique()
             ]
@@ -112,13 +114,13 @@ def comp_line(
             df_cols = ["locations"] + new_dep_cols
 
             df_new = pd.DataFrame(columns=df_cols)
-            df_new["locations"] = df_copy[lctn_col].unique()
+            df_new["locations"] = df_copy[group_col].unique()
 
             for lctn in df_new["locations"]:
                 df_new.loc[
                     df_new[df_new["locations"] == lctn].index, new_dep_cols
                 ] = df_copy.loc[
-                    df_copy[df_copy[lctn_col] == lctn].index, dependent_cols
+                    df_copy[df_copy[group_col] == lctn].index, dependent_cols
                 ].values[
                     ::was_sorted
                 ]
@@ -156,10 +158,13 @@ def comp_line(
             ax = axis  # to mirror seaborn axis plotting
         else:
             ax = plt.subplots()[1]
-
+        print(indep_stats)
+        print(lol_allocations)
         ax.stackplot(indep_stats, lol_allocations)
 
     else:
+        if type(dependent_cols) == str:
+            dependent_cols = [dependent_cols]
         for i in range(len(df_copy)):
             ax = sns.lineplot(
                 x=indep_stats, y=list(df_copy.loc[i, dependent_cols].values), ax=axis
