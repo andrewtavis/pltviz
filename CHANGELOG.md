@@ -1,6 +1,6 @@
 ### pltviz 0.1.0 (Feb 11, 2021)
 
-- First stable release of pltviz
+First stable release of pltviz
 
 - Additions include:
 
