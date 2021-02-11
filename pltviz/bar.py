@@ -19,8 +19,8 @@ default_sat = 0.95
 
 def bar(
     counts,
-    names=None,
-    faction_names=None,
+    labels=None,
+    faction_labels=None,
     colors=None,
     horizontal=False,
     stacked=False,
@@ -37,11 +37,11 @@ def bar(
             The data to be plotted
             Note: a list of lists produces a stacked plot where sublists define factions to be stacked
 
-        names : list : optional (default=None; contains strs)
-            The names of the groups
+        labels : list : optional (default=None; contains strs)
+            The labels of the groups
 
-        faction_names : list : optional (default=None; contains strs)
-            The names of potential factions
+        faction_labels : list : optional (default=None; contains strs)
+            The labels of potential factions
             Note: plotting with factions groups bars based on the list in which they're found
 
         colors : list : optional (default=None)
@@ -52,7 +52,7 @@ def bar(
 
         stacked : bool : optional (default=False)
             Whether the outputs should be stacked
-            Note: the use of faction_names will inherently stack faction members and separate factions
+            Note: the use of faction_labels will inherently stack faction members and separate factions
 
         label_bars : bool : optional (default=False)
             Whether or not to label the bars with their heights (or widths)
@@ -68,7 +68,7 @@ def bar(
         ax : matplotlib.pyplot.subplot
             A bar plot with the above criteria
     """
-    if faction_names:
+    if faction_labels:
         assert (
             list(set([type(count) for count in counts]))[0] == list
             and len(set([type(count) for count in counts])) == 1
@@ -113,22 +113,22 @@ def bar(
     else:
         df_plot["counts"] = counts
 
-    if faction_names:
-        factions_for_names = [
-            [faction_names[i]] * len(counts[i]) for i in range(len(faction_names))
+    if faction_labels:
+        factions_for_labels = [
+            [faction_labels[i]] * len(counts[i]) for i in range(len(faction_labels))
         ]
         df_plot["faction"] = [
-            item for sublist in factions_for_names for item in sublist
+            item for sublist in factions_for_labels for item in sublist
         ]
 
-    if type(names) == pd.Series:
-        names = list(names)
+    if type(labels) == pd.Series:
+        labels = list(labels)
 
-    if names:
-        df_plot["group"] = names
+    if labels:
+        df_plot["group"] = labels
     else:
-        names = range(len(counts))  # dummy names to be removed
-        df_plot["group"] = names
+        labels = range(len(counts))  # dummy labels to be removed
+        df_plot["group"] = labels
 
     if horizontal:
         if stacked:
@@ -149,9 +149,9 @@ def bar(
                 pivot_plot = (
                     df_plot.pivot(columns="group", index="faction", values="counts")
                     .fillna(0)
-                    .reindex(faction_names)
+                    .reindex(faction_labels)
                 )
-                pivot_plot = pivot_plot[names]
+                pivot_plot = pivot_plot[labels]
                 colors = [
                     utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
@@ -236,7 +236,7 @@ def bar(
                 y_label_locs = [np.mean(f) for f in factioned_bar_locations]
 
                 ax.set_yticks(ticks=y_label_locs)
-                ax.set_yticklabels(labels=faction_names, rotation=90)
+                ax.set_yticklabels(labels=faction_labels, rotation=90)
                 ax.tick_params(axis="y", grid_linewidth=0)
 
             if label_bars:
@@ -267,9 +267,9 @@ def bar(
                 pivot_plot = (
                     df_plot.pivot(columns="group", index="faction", values="counts")
                     .fillna(0)
-                    .reindex(faction_names)
+                    .reindex(faction_labels)
                 )
-                pivot_plot = pivot_plot[names]
+                pivot_plot = pivot_plot[labels]
                 colors = [
                     utils.scale_saturation(rgb=utils.hex_to_rgb(c), sat=dsat)
                     for c in colors
@@ -353,7 +353,7 @@ def bar(
                 x_label_locs = [np.mean(f) for f in factioned_bar_locations]
 
                 ax.set_xticks(ticks=x_label_locs)
-                ax.set_xticklabels(labels=faction_names)
+                ax.set_xticklabels(labels=faction_labels)
                 ax.tick_params(axis="x", grid_linewidth=0)
 
             if label_bars:
@@ -366,7 +366,7 @@ def bar(
                     )
 
     if (stacked and list not in [type(i) for i in counts]) or (
-        not names and not faction_names
+        not labels and not faction_labels
     ):
         if horizontal:
             ax.axes.get_yaxis().set_ticks([])

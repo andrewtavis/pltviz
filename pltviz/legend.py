@@ -72,7 +72,7 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
 
 def gen_elements(
     counts=None,
-    names=None,
+    labels=None,
     colors=None,
     size=10,
     marker="o",
@@ -89,8 +89,8 @@ def gen_elements(
             The data to be plotted
             Note: a list of lists produces a stacked plot where sublists define factions to be stacked
 
-        names : list : optional (default=None; contains strs)
-            The names of the groups
+        labels : list : optional (default=None; contains strs)
+            The labels of the groups
 
         colors : list : optional (contains rgb strs)
             The colors to be used for the legend
@@ -127,10 +127,10 @@ def gen_elements(
     # Allows for easy experimentation with the legend
     handles = []
     labels = []
-    if (counts is not None) or (names is not None):
+    if (counts is not None) or (labels is not None):
         # Create 'None' copies to assure originals aren't altered
         counts_copy = None
-        names_copy = None
+        labels_copy = None
 
         if counts is not None:
             if type(counts) == pd.Series:
@@ -141,8 +141,8 @@ def gen_elements(
 
             counts_copy = counts[:]
 
-        if names is not None:
-            names_copy = names[:]
+        if labels is not None:
+            labels_copy = labels[:]
 
         if order is not None:
             if list in [type(item) for item in order]:
@@ -150,15 +150,15 @@ def gen_elements(
 
             if counts_copy is not None:
                 counts_copy = [counts_copy[i] for i in order]
-            if names_copy is not None:
-                names_copy = [names_copy[i] for i in order]
+            if labels_copy is not None:
+                labels_copy = [labels_copy[i] for i in order]
             colors_copy = [colors_copy[i] for i in order]
 
         else:
             if counts_copy is not None:
                 order = list(range(len(counts_copy)))
-            elif names_copy is not None:
-                order = list(range(len(names_copy)))
+            elif labels_copy is not None:
+                order = list(range(len(labels_copy)))
 
         if padding_indexes:
             if type(padding_indexes) == int:
@@ -167,26 +167,26 @@ def gen_elements(
             for i in padding_indexes:
                 if counts_copy is not None:
                     counts_copy.insert(i, None)
-                if names_copy is not None:
-                    names_copy.insert(i, None)
+                if labels_copy is not None:
+                    labels_copy.insert(i, None)
                 colors_copy.insert(i, "#ffffff00")
 
         handles = gen_handles(colors=colors_copy, size=size, marker=marker)
 
-        if (counts_copy is not None) and (names_copy is not None):
+        if (counts_copy is not None) and (labels_copy is not None):
             labels = [
-                f"{names_copy[i]}: {counts_copy[i]}" if counts_copy[i] != None else ""
+                f"{labels_copy[i]}: {counts_copy[i]}" if counts_copy[i] != None else ""
                 for i in range(len(counts_copy))
             ]
-        elif (counts_copy is not None) and (names_copy is None):
+        elif (counts_copy is not None) and (labels_copy is None):
             labels = [
                 f"{counts_copy[i]}" if counts_copy[i] != None else ""
                 for i in range(len(counts_copy))
             ]
-        elif (counts_copy is None) and (names_copy is not None):
+        elif (counts_copy is None) and (labels_copy is not None):
             labels = [
-                f"{names_copy[i]}" if names_copy[i] != None else ""
-                for i in range(len(names_copy))
+                f"{labels_copy[i]}" if labels_copy[i] != None else ""
+                for i in range(len(labels_copy))
             ]
 
     return handles, labels

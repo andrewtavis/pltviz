@@ -138,7 +138,7 @@ texinfo_documents = [
         "pltviz Documentation",
         author,
         "pltviz",
-        "Unsupervised keyword generation in Python",
+        "Standardized plots and visualizations in Python",
         "Miscellaneous",
     )
 ]

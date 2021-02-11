@@ -136,7 +136,7 @@ def comp_line(
 
         else:
             ValueError(
-                "The 'dependent_cols' argument does not contain column names for the provided dataframe."
+                "The 'dependent_cols' argument does not contain column labels for the provided dataframe."
             )
 
     if percent == True:

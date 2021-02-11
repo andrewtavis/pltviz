@@ -20,13 +20,13 @@ default_sat = 0.95
 
 def pie(
     counts,
-    names=None,
-    faction_names=None,
+    labels=None,
+    faction_labels=None,
     colors=None,
     radius=1,
     outer_ring_density=100,
     donut_ratio=1,
-    display_names=False,
+    display_labels=False,
     display_counts=False,
     label_font_size=20,
     dsat=default_sat,
@@ -41,11 +41,11 @@ def pie(
             The data to be plotted
             Note: a list of lists produces a two layer plot where sublists define factions
 
-        names : list : optional (default=None; contains strs)
-            The names of the groups
+        labels : list : optional (default=None; contains strs)
+            The labels of the groups
 
-        faction_names : list : optional (default=None; contains strs)
-            The names of potential factions
+        faction_labels : list : optional (default=None; contains strs)
+            The labels of potential factions
 
         colors : list or list of lists : optional (default=None)
             The colors of the groups as hex keys
@@ -59,10 +59,10 @@ def pie(
         donut_ratio : float (default=1, a full circle)
             The ratio of the center radius of a donut to the whole
 
-        display_names : bool : optional (default=False)
-            Whether to display the names of the groups (or factions if they're included)
+        display_labels : bool : optional (default=False)
+            Whether to display the labels of the groups (or factions if they're included)
 
-                Note: names can only be displayed for groups or factions, faction names are if they're included
+                Note: labels can only be displayed for groups or factions, faction labels are if they're included
 
                 Note: if factions are included, then a legend should be used for the inner group labels (see package examples)
 
@@ -83,7 +83,7 @@ def pie(
         ax : matplotlib.pyplot.subplot
             A donut plot that depicts shares or allocations (potentially including factions)
     """
-    if faction_names:
+    if faction_labels:
         assert (
             list(set([type(count) for count in counts]))[0] == list
             and len(set([type(count) for count in counts])) == 1
@@ -94,8 +94,8 @@ def pie(
         and len(set([type(count) for count in counts])) == 1
     ):
         assert (
-            faction_names
-        ), "A list of lists has been provided for 'counts', implying that factions should also be represented, but no names for the factions have been provided "
+            faction_labels
+        ), "A list of lists has been provided for 'counts', implying that factions should also be represented, but no labels for the factions have been provided "
 
     if list in [type(item) for item in counts]:
         total_groups = len([item for sublist in counts for item in sublist])
@@ -122,7 +122,7 @@ def pie(
     else:
         ax = plt.subplots(1, 1)[1]
 
-    if faction_names:
+    if faction_labels:
         faction_counts = [sum(sub_list) for sub_list in counts]
 
         # Indexes for later colors
@@ -147,7 +147,7 @@ def pie(
         )
 
         outer_ring_colors = []
-        for faction_index in range(len(faction_names)):
+        for faction_index in range(len(faction_labels)):
             # Use the Jefferson highest_average method again to allocate the faction's outer ring sections to colors
             # This would contain allocations for len(counts[faction_index]) colors, but there are len(counts[faction_index])-1 gradients
             # Thus average over Jefferson highest_average allocations when each element is removed for approporiately weighted gradients
@@ -212,9 +212,9 @@ def pie(
         # Flatten counts for the inner ring and labelling
         counts = [item for sublist in counts for item in sublist]
 
-        if display_names:
+        if display_labels:
             outer_ring_labels = []
-            names = [""] * len(counts)
+            labels = [""] * len(counts)
             # Place labels in the middle of the faction's arc, and make the others blank
             factions_index = 0
             label_index = faction_counts[factions_index] / 2  # in the middle
@@ -222,10 +222,10 @@ def pie(
                 if i == round(label_index / sum(faction_counts) * outer_ring_density):
                     if display_counts:
                         outer_ring_labels.append(
-                            f"{faction_names[factions_index]}: {faction_counts[factions_index]}"
+                            f"{faction_labels[factions_index]}: {faction_counts[factions_index]}"
                         )
                     else:
-                        outer_ring_labels.append(faction_names[factions_index])
+                        outer_ring_labels.append(faction_labels[factions_index])
 
                     factions_index += 1
                     if factions_index < len(faction_counts):
@@ -237,7 +237,7 @@ def pie(
         else:
             label_font_size = 0
             outer_ring_labels = [""] * outer_ring_density
-            names = [""] * len(counts)
+            labels = [""] * len(counts)
 
         outer_ring, _ = ax.pie(
             x=outer_ring_sections,
@@ -250,18 +250,18 @@ def pie(
 
     else:
         if display_counts:
-            names = [f"{names[i]}: {counts[i]}" for i in range(len(names))]
+            labels = [f"{labels[i]}: {counts[i]}" for i in range(len(labels))]
         else:
-            # Remove names for those that have 0 counts to avoid confusion
-            names = [names[i] if counts[i] > 0 else "" for i in range(len(names))]
+            # Remove labels for those that have 0 counts to avoid confusion
+            labels = [labels[i] if counts[i] > 0 else "" for i in range(len(labels))]
 
-        if not display_names:
-            names = [""] * len(counts)
+        if not display_labels:
+            labels = [""] * len(counts)
 
     inner_ring, _ = ax.pie(
         x=counts,
         radius=radius,
-        labels=names,
+        labels=labels,
         colors=colors,
         textprops={"fontsize": label_font_size},
     )

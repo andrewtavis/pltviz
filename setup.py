@@ -20,12 +20,12 @@ setup_args = dict(
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent",
     ],
-    description="Standardized vizualization in Python",
+    description="Standardized plots and visualizations in Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=find_namespace_packages(),
@@ -41,7 +41,7 @@ install_requires = [
     "matplotlib",
     "seaborn",
     "colormath",
-    "poli_sci_kit",
+    "poli-sci-kit",
 ]
 
 if __name__ == "__main__":

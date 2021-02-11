@@ -10,12 +10,12 @@
 [![pyversions](https://img.shields.io/pypi/pyversions/pltviz.svg?logo=python)](https://pypi.org/project/pltviz/)
 [![pypi](https://img.shields.io/pypi/v/pltviz.svg)](https://pypi.org/project/pltviz/)
 [![pypistatus](https://img.shields.io/pypi/status/pltviz.svg)](https://pypi.org/project/pltviz/)
-[![license](https://img.shields.io/github/license/andrewtavis/pltviz.svg)](https://github.com/andrewtavis/pltviz/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/andrewtavis/pltviz.svg)](https://github.com/andrewtavis/pltviz/blob/main/LICENSE.txt)
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md)
 [![coc](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CODE_OF_CONDUCT.md)
 
-### Standardized visualization in Python
+### Standardized plots and visualizations in Python
 
 [//]: # "The '-' after the section links is needed to make them work on GH (because of ↩s)"
 **Jump to:**<a id="jumpto"></a> [plot](#plot-) • [To-Do](#to-do-)
@@ -23,8 +23,17 @@
 **pltviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
 # Installation via PyPi
+
+pltviz can be downloaded from pypi via pip our sourced directly from this repository:
+
 ```bash
 pip install pltviz
+```
+
+```bash
+git clone https://github.com/andrewtavis/pltviz.git
+cd pltviz
+python setup.py install
 ```
 
 ```python
@@ -59,8 +68,8 @@ seat_allocations = [26, 9, 37, 12, 23, 5]
 # Bar plot options such as stacked and label bars are booleans
 ax = pltviz.bar(
     counts=seat_allocations,
-    names=parties,
-    faction_names=None,
+    labels=parties,
+    faction_labels=None,
     colors=party_colors,
     horizontal=False,
     stacked=False,
@@ -101,7 +110,7 @@ ax = pltviz.semipie(counts=seat_allocations, colors=party_colors, donut_ratio=0.
 
 handles, labels = pltviz.legend.gen_elements(
     counts=seat_allocations,
-    names=parties,
+    labels=parties,
     colors=party_colors,
     size=15,
     marker="o",

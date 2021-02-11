@@ -23,6 +23,8 @@ __pycache__
 env
 venv
 pltviz-dev
+# Testing files
+.coverage
 
 # Display files
 ###############

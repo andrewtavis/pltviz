@@ -11,7 +11,7 @@
     :target: http://pltviz.readthedocs.io/en/latest/
 
 .. |travis| image:: https://img.shields.io/travis/com/andrewtavis/pltviz.svg?logo=travis-ci
-    :target: https://travis-ci.org/andrewtavis/pltviz
+    :target: https://www.travis-ci.com/github/andrewtavis/pltviz
 
 .. |codecov| image:: https://codecov.io/gh/andrewtavis/pltviz/branch/main/graphs/badge.svg
     :target: https://codecov.io/gh/andrewtavis/pltviz
@@ -22,11 +22,11 @@
 .. |pypi| image:: https://badge.fury.io/py/pltviz.svg
     :target: https://pypi.org/project/pltviz/
 
-.. |pypistatus| image:: https://img.shields.io/pypi/status/pltviz.svg
+.. |pypistatus| image:: https://img.shields.io/pypi/v/pltviz.svg
     :target: https://pypi.org/project/pltviz/
 
 .. |license| image:: https://img.shields.io/github/license/andrewtavis/pltviz.svg
-    :target: https://github.com/andrewtavis/pltviz/blob/main/LICENSE
+    :target: https://github.com/andrewtavis/pltviz/blob/main/LICENSE.txt
 
 .. |codestyle| image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
@@ -44,6 +44,12 @@ Installation
 .. code-block:: shell
 
     pip install pltviz
+
+.. code-block:: shell
+
+    git clone https://github.com/andrewtavis/pltviz.git
+    cd pltviz
+    python setup.py install
 
 .. code-block:: python
 
