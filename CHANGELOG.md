@@ -1,3 +1,21 @@
+### pltviz 0.1.0 (Feb 11, 2021)
+
+First stable release of pltviz
+
+Additions include:
+
+Changing the package's name to pltviz
+
+Full documentation of the package
+
+Virtual environment files
+
+Bug fixes
+
+Extensive testing of all modules with Travis and Codecov
+
+Code of conduct and contribution guidelines
+
 ### pltviz 0.0.1 (Dec 10, 2020)
 
 The minimum viable product of pltviz:
