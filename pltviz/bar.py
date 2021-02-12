@@ -115,7 +115,7 @@ def bar(
 
     if faction_labels:
         factions_for_labels = [
-            [faction_labels[i]] * len(counts[i]) for i in range(len(faction_labels))
+            [lbl] * len(counts[i]) for i, lbl in enumerate(faction_labels)
         ]
         df_plot["faction"] = [
             item for sublist in factions_for_labels for item in sublist
@@ -176,9 +176,9 @@ def bar(
                     # Start and end indexes of all factions
                     faction_start_idxs = list(set([p.get_y() for p in ax.patches]))
 
-                    for i in range(len(counts)):
-                        label_text = str(utils.round_if_int(sum(counts[i])))
-                        label_position = sum(counts[i]) + 1
+                    for i, c in enumerate(counts):
+                        label_text = str(utils.round_if_int(sum(c)))
+                        label_position = sum(c) + 1
 
                         ax.text(
                             x=label_position,
@@ -211,11 +211,10 @@ def bar(
                 bar_positions = [
                     0.8 * i - 0.4 for i in list(range(0, len(flat_counts)))
                 ]  # 0.8 is the default width of plt.bar
-                bar_shifts = [[0.8 * i] * len(counts[i]) for i in range(len(counts))]
+                bar_shifts = [[0.8 * i] * len(c) for i, c in enumerate(counts)]
                 flat_bar_shifts = [item for sublist in bar_shifts for item in sublist]
                 bar_locations = [
-                    bar_positions[i] + flat_bar_shifts[i]
-                    for i in range(len(bar_positions))
+                    p + flat_bar_shifts[i] for i, p in enumerate(bar_positions)
                 ]
 
                 scaled_colors = [
@@ -293,9 +292,9 @@ def bar(
                 else:
                     faction_start_idxs = list(set([p.get_x() for p in ax.patches]))
 
-                    for i in range(len(counts)):
-                        label_text = str(utils.round_if_int(sum(counts[i])))
-                        label_position = sum(counts[i]) + 1
+                    for i, c in enumerate(counts):
+                        label_text = str(utils.round_if_int(sum(c)))
+                        label_position = sum(c) + 1
 
                         ax.text(
                             x=faction_start_idxs[i]
@@ -328,11 +327,10 @@ def bar(
                 bar_positions = [
                     0.8 * i - 0.4 for i in list(range(0, len(flat_counts)))
                 ]  # 0.8 is the default width of plt.bar
-                bar_shifts = [[0.8 * i] * len(counts[i]) for i in range(len(counts))]
+                bar_shifts = [[0.8 * i] * len(c) for i, c in enumerate(counts)]
                 flat_bar_shifts = [item for sublist in bar_shifts for item in sublist]
                 bar_locations = [
-                    bar_positions[i] + flat_bar_shifts[i]
-                    for i in range(len(bar_positions))
+                    p + flat_bar_shifts[i] for i, p in enumerate(bar_positions)
                 ]
 
                 scaled_colors = [

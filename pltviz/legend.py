@@ -62,9 +62,9 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
             markersize=size,
             markeredgecolor=marker_edge_colors[i],
             markeredgewidth=size / 10,
-            markerfacecolor=utils.scale_saturation(rgb_trip=colors[i], sat=dsat),
+            markerfacecolor=utils.scale_saturation(rgb_trip=c, sat=dsat),
         )
-        for i in range(len(colors))
+        for i, c in enumerate(colors)
     ]
 
     return lgnd_handles
@@ -174,18 +174,16 @@ def gen_elements(
 
         if (counts_copy is not None) and (labels_copy is not None):
             lgnd_labels = [
-                f"{labels_copy[i]}: {counts_copy[i]}" if counts_copy[i] != None else ""
-                for i in range(len(counts_copy))
+                f"{labels_copy[i]}: {c}" if c != None else ""
+                for i, c in enumerate(counts_copy)
             ]
         elif (counts_copy is not None) and (labels_copy is None):
             lgnd_labels = [
-                f"{counts_copy[i]}" if counts_copy[i] != None else ""
-                for i in range(len(counts_copy))
+                f"{c}" if c != None else "" for i, c in enumerate(counts_copy)
             ]
         elif (counts_copy is None) and (labels_copy is not None):
             lgnd_labels = [
-                f"{labels_copy[i]}" if labels_copy[i] != None else ""
-                for i in range(len(labels_copy))
+                f"{lbl}" if lbl != None else "" for i, lbl in enumerate(labels_copy)
             ]
 
     return lgnd_handles, lgnd_labels

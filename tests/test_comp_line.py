@@ -18,9 +18,9 @@ def test_comp_line(monkeypatch, parties, party_colors):
 
     election_df = pd.DataFrame()
     election_df["parties"] = parties
-    election_df.loc[:, "seats_1"] = pd.Series(seats_1, index=range(len(election_df)),)
-    election_df.loc[:, "seats_2"] = pd.Series(seats_2, index=range(len(election_df)),)
-    election_df.loc[:, "seats_3"] = pd.Series(seats_3, index=range(len(election_df)),)
+    election_df.loc[:, "seats_1"] = pd.Series(seats_1, index=election_df.index,)
+    election_df.loc[:, "seats_2"] = pd.Series(seats_2, index=election_df.index,)
+    election_df.loc[:, "seats_3"] = pd.Series(seats_3, index=election_df.index,)
 
     pltviz.comp_line(
         df=election_df,

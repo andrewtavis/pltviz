@@ -112,8 +112,7 @@ def add_num_commas(num):
     str_list = str_list[::-1]
 
     str_list_with_commas = [
-        str_list[i] + "," if i % 3 == 0 and i != 0 else str_list[i]
-        for i in range(len(str_list))
+        s + "," if i % 3 == 0 and i != 0 else s for i, s in enumerate(str_list)
     ]
     str_list_with_commas = str_list_with_commas[::-1]
 

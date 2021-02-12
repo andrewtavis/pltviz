@@ -152,7 +152,7 @@ def pie(
         for faction_index in range(len(faction_labels)):
             # Use the Jefferson highest_average method again to allocate the faction's outer ring sections to colors
             # This would contain allocations for len(counts[faction_index]) colors, but there are len(counts[faction_index])-1 gradients
-            # Thus average over Jefferson highest_average allocations when each element is removed for approporiately weighted gradients
+            # Thus average over Jefferson highest_average allocations when each element is removed for appropriately weighted gradients
             if len(counts[faction_index]) == 1:
                 averaged_allocations = [faction_sections[faction_index]]
             else:
@@ -255,10 +255,10 @@ def pie(
 
     else:
         if display_counts:
-            labels = [f"{labels[i]}: {counts[i]}" for i in range(len(labels))]
+            labels = [f"{lbl}: {counts[i]}" for i, lbl in enumerate(labels)]
         else:
             # Remove labels for those that have 0 counts to avoid confusion
-            labels = [labels[i] if counts[i] > 0 else "" for i in range(len(labels))]
+            labels = [lbl if counts[i] > 0 else "" for i, lbl in enumerate(labels)]
 
         if not display_labels:
             labels = [""] * len(counts)

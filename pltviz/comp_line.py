@@ -147,7 +147,7 @@ def comp_line(
 
     if stacked:
         lol_allocations = []
-        for i in range(len(df_copy)):
+        for i in df_copy.index:
             list_of_allocations = []
             for col in dependent_cols:
                 list_of_allocations.append(df_copy.loc[i, col])
@@ -165,7 +165,7 @@ def comp_line(
     else:
         if type(dependent_cols) == str:
             dependent_cols = [dependent_cols]
-        for i in range(len(df_copy)):
+        for i in df_copy.index:
             ax = sns.lineplot(
                 x=indep_stats, y=list(df_copy.loc[i, dependent_cols].values), ax=axis
             )
