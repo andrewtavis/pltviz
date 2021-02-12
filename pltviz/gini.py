@@ -2,7 +2,7 @@
 Gini Curve Plot
 ---------------
 
-Contents
+Contents:
     gini
 """
 

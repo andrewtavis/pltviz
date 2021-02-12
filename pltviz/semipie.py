@@ -2,7 +2,7 @@
 Semipie Plot
 ------------
 
-Contents
+Contents:
     semipie
 """
 

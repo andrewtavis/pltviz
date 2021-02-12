@@ -2,7 +2,7 @@
 Comparative Line Plot
 ---------------------
 
-Contents
+Contents:
     comp_line
 """
 

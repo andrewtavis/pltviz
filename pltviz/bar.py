@@ -3,7 +3,7 @@ Bar Plot
 --------
 
 Contents
-    bar
+    bar:
 """
 
 import numpy as np

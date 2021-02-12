@@ -13,7 +13,7 @@ but is not as dark to roughly maintain input colors
 
 Functions here use pandas, pyplot, and seaborn, hence the need for standardization
 
-Contents
+Contents:
     round_if_int,
     gen_list_of_lists,
     add_num_commas,

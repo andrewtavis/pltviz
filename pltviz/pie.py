@@ -2,7 +2,7 @@
 Pie Plot
 --------
 
-Contents
+Contents:
     pie
 """
 
