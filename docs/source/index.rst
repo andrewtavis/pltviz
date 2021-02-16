@@ -22,7 +22,7 @@
 .. |pypi| image:: https://img.shields.io/pypi/v/pltviz.svg?color=4B8BBE
     :target: https://pypi.org/project/pltviz/
 
-.. |pypistatus| image:: https://img.shields.io/pypi/v/pltviz.svg
+.. |pypistatus| image:: https://img.shields.io/pypi/status/pltviz.svg
     :target: https://pypi.org/project/pltviz/
 
 .. |license| image:: https://img.shields.io/github/license/andrewtavis/pltviz.svg
