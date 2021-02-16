@@ -5,7 +5,7 @@
     :target: https://github.com/andrewtavis/pltviz
 ============
 
-|rtd| |ci| |codecov| |pyversions| |pypi| |pypistatus| |license| |codestyle| |contributions| |coc|
+|rtd| |ci| |codecov| |pyversions| |pypi| |pypistatus| |license| |contributions| |coc| |codestyle|
 
 .. |rtd| image:: https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs
     :target: http://pltviz.readthedocs.io/en/latest/
