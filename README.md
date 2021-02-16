@@ -5,15 +5,14 @@
 --------------------------------------
 
 [![rtd](https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs)](http://pltviz.readthedocs.io/en/latest/)
-[![travis](https://img.shields.io/travis/com/andrewtavis/pltviz.svg?logo=travis-ci)](https://travis-ci.com/andrewtavis/pltviz)
+[![ci](https://img.shields.io/github/workflow/status/andrewtavis/pltviz/CI?logo=github)](https://github.com/andrewtavis/pltviz/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/andrewtavis/pltviz/branch/main/graphs/badge.svg)](https://codecov.io/gh/andrewtavis/pltviz)
-[![pyversions](https://img.shields.io/pypi/pyversions/pltviz.svg?logo=python)](https://pypi.org/project/pltviz/)
-[![pypi](https://img.shields.io/pypi/v/pltviz.svg)](https://pypi.org/project/pltviz/)
-[![pypistatus](https://img.shields.io/pypi/status/pltviz.svg)](https://pypi.org/project/pltviz/)
+[![pyversions](https://img.shields.io/pypi/pyversions/pltviz.svg?logo=python&logoColor=FFD43B&color=306998)](https://pypi.org/project/pltviz/)
+[![pypi](https://img.shields.io/pypi/v/pltviz.svg?color=4B8BBE)](https://pypi.org/project/pltviz/)
 [![license](https://img.shields.io/github/license/andrewtavis/pltviz.svg)](https://github.com/andrewtavis/pltviz/blob/main/LICENSE.txt)
+[![contributions](https://img.shields.io/badge/coc-contributor%20convent-ff69b4.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md)
+[![coc](https://img.shields.io/badge/coc-contributor%20convent-ff69b4.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CODE_OF_CONDUCT.md)
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md)
-[![coc](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CODE_OF_CONDUCT.md)
 
 ### Standardized plots and visualizations in Python
 
