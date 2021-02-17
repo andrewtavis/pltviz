@@ -12,7 +12,7 @@ First stable release of pltviz
 
 - Bug fixes
 
-- Extensive testing of all modules with Travis and Codecov
+- Extensive testing of all modules with GH Actions and Codecov
 
 - Code of conduct and contribution guidelines
 

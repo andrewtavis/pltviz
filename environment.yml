@@ -1,5 +1,3 @@
-# This file may be used to create an environment using:
-# $ conda env create -file environment.yml
 name: pltviz-dev
 channels:
   - anaconda
