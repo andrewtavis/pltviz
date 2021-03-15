@@ -11,7 +11,6 @@
 [![pypi](https://img.shields.io/pypi/v/pltviz.svg?color=4B8BBE)](https://pypi.org/project/pltviz/)
 [![pypistatus](https://img.shields.io/pypi/status/pltviz.svg)](https://pypi.org/project/pltviz/)
 [![license](https://img.shields.io/github/license/andrewtavis/pltviz.svg)](https://github.com/andrewtavis/pltviz/blob/main/LICENSE.txt)
-[![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md)
 [![coc](https://img.shields.io/badge/coc-Contributor%20Covenant-ff69b4.svg)](https://github.com/andrewtavis/pltviz/blob/main/.github/CODE_OF_CONDUCT.md)
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 

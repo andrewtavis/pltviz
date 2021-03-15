@@ -28,9 +28,6 @@
 .. |license| image:: https://img.shields.io/github/license/andrewtavis/pltviz.svg
     :target: https://github.com/andrewtavis/pltviz/blob/main/LICENSE.txt
 
-.. |contributions| image:: https://img.shields.io/badge/contributions-welcome-brightgreen.svg
-    :target: https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md
-
 .. |coc| image:: https://img.shields.io/badge/coc-Contributor%20Covenant-ff69b4.svg
     :target: https://github.com/andrewtavis/kwx/blob/main/.github/CODE_OF_CONDUCT.md
 
