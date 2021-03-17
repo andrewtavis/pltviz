@@ -5,7 +5,7 @@
     :target: https://github.com/andrewtavis/pltviz
 ============
 
-|rtd| |ci| |codecov| |pyversions| |pypi| |pypistatus| |license| |coc| |codestyle|
+|rtd| |ci| |codecov| |pyversions| |pypi| |pypistatus| |license| |coc| |codestyle| |colab|
 
 .. |rtd| image:: https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs
     :target: http://pltviz.readthedocs.io/en/latest/
@@ -33,6 +33,9 @@
 
 .. |codestyle| image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/psf/black
+
+.. |colab| image:: https://img.shields.io/badge/%20-Open%20in%20Colab-097ABB.svg?logo=google-colab&color=097ABB&labelColor=525252
+    :target: https://colab.research.google.com/github/andrewtavis/pltviz
 
 Standardized visualization in Python
 
