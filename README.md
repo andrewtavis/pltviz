@@ -16,7 +16,7 @@
 
 ### Standardized plots and visualizations in Python
 
-**Jump to:**<a id="jumpto"></a> [plot](#plot-) • [To-Do](#to-do-)
+**Jump to:**<a id="jumpto"></a> [plot](#plot) • [To-Do](#to-do)
 
 **pltviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
