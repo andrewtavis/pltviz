@@ -16,7 +16,7 @@
 
 ### Standardized plots and visualizations in Python
 
-**Jump to:**<a id="jumpto"></a> [plot](#plot) • [To-Do](#to-do)
+**Contents:**<a id="contents"></a> [plot](#plot) • [To-Do](#to-do)
 
 **pltviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
@@ -38,7 +38,7 @@ python setup.py install
 import pltviz
 ```
 
-# plot [`↩`](#jumpto) <a id="plot"></a>
+# plot [`↩`](#contents) <a id="plot"></a>
 
 Plotting methods within [pltviz](https://github.com/andrewtavis/pltviz/tree/main/pltviz) are tailored to provide quick results for staples of data visualization.
 
@@ -165,7 +165,7 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/gini.png" width="600" />
 </p>
 
-# To-Do [`↩`](#jumpto) <a id="to-do"></a>
+# To-Do [`↩`](#contents) <a id="to-do"></a>
 
 - Adding standardized examples of further plots and visualizations
 - Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/pltviz/plot/pie)
