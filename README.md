@@ -7,6 +7,7 @@
 [![rtd](https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs)](http://pltviz.readthedocs.io/en/latest/)
 [![ci](https://img.shields.io/github/workflow/status/andrewtavis/pltviz/CI?logo=github)](https://github.com/andrewtavis/pltviz/actions?query=workflow%3ACI)
 [![codecov](https://codecov.io/gh/andrewtavis/pltviz/branch/main/graphs/badge.svg)](https://codecov.io/gh/andrewtavis/pltviz)
+[![quality](https://img.shields.io/codacy/grade/df8099ad194f4b478ce3afd36643667f?logo=codacy)](https://app.codacy.com/gh/andrewtavis/pltviz/dashboard)
 [![pyversions](https://img.shields.io/pypi/pyversions/pltviz.svg?logo=python&logoColor=FFD43B&color=306998)](https://pypi.org/project/pltviz/)
 [![pypi](https://img.shields.io/pypi/v/pltviz.svg?color=4B8BBE)](https://pypi.org/project/pltviz/)
 [![pypistatus](https://img.shields.io/pypi/status/pltviz.svg)](https://pypi.org/project/pltviz/)

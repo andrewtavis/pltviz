@@ -5,7 +5,7 @@
     :target: https://github.com/andrewtavis/pltviz
 ============
 
-|rtd| |ci| |codecov| |pyversions| |pypi| |pypistatus| |license| |coc| |codestyle| |colab|
+|rtd| |ci| |codecov| |quality| |pyversions| |pypi| |pypistatus| |license| |coc| |codestyle| |colab|
 
 .. |rtd| image:: https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs
     :target: http://pltviz.readthedocs.io/en/latest/
@@ -15,6 +15,9 @@
 
 .. |codecov| image:: https://codecov.io/gh/andrewtavis/pltviz/branch/main/graphs/badge.svg
     :target: https://codecov.io/gh/andrewtavis/pltviz
+
+.. |quality| image:: https://img.shields.io/codacy/grade/df8099ad194f4b478ce3afd36643667f?logo=codacy
+    :target: https://app.codacy.com/gh/andrewtavis/pltviz/dashboard
 
 .. |pyversions| image:: https://img.shields.io/pypi/pyversions/pltviz.svg?logo=python&logoColor=FFD43B&color=306998
     :target: https://pypi.org/project/pltviz/
