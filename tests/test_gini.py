@@ -3,7 +3,6 @@ Gini Plot Tests
 ---------------
 """
 
-import pytest
 import matplotlib.pyplot as plt
 
 import pltviz

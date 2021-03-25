@@ -29,7 +29,7 @@ def bar(
     axis=None,
 ):
     """
-    A customizable bar plot that allows for easy combination of inputs into factions
+    A customizable bar plot that allows for easy combination of inputs into factions.
 
     Parameters
     ----------

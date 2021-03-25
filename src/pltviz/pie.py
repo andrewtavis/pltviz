@@ -33,7 +33,7 @@ def pie(
     axis=None,
 ):
     """
-    Produces a donut plot of group (and faction) shares or allocations
+    Produces a donut plot of group (and faction) shares or allocations.
 
     Parameters
     ----------

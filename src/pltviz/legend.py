@@ -21,7 +21,7 @@ default_sat = 0.95
 
 def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
     """
-    Generates handles for plot legends
+    Generates handles for plot legends.
 
     Parameters
     ----------
@@ -81,7 +81,7 @@ def gen_elements(
     dsat=default_sat,
 ):
     """
-    Generates handles and labels for plot legends while allowing for label padding and reordering
+    Generates handles and labels for plot legends while allowing for label padding and reordering.
 
     Parameters
     ----------

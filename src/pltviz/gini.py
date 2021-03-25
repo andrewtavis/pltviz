@@ -16,7 +16,7 @@ default_sat = 0.95
 
 def gini(shares=None, dsat=default_sat, axis=None):
     """
-    Produces a semicircle plot of shares or allocations
+    Produces a semicircle plot of shares or allocations.
 
     Parameters
     ----------

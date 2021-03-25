@@ -18,7 +18,7 @@ default_sat = 0.95
 
 def semipie(counts, colors=None, donut_ratio=1, dsat=default_sat, axis=None):
     """
-    Produces a semicircle plot of shares or allocations
+    Produces a semicircle plot of shares or allocations.
 
     Parameters
     ----------

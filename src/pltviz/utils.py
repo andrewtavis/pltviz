@@ -2,7 +2,7 @@
 Utilities
 ---------
 
-Utility functions for general operations and coloration
+Utility functions for general operations and coloration.
 
 Note:
 In order to standardize coloration and make plots more readable,
@@ -24,7 +24,7 @@ Contents:
     gen_random_colors
 """
 
-import random
+from random import SystemRandom
 import colorsys
 from difflib import SequenceMatcher
 
@@ -40,7 +40,7 @@ from colormath.color_conversions import convert_color
 
 def round_if_int(val):
     """
-    Rounds off the decimal of a value if it is an integer float
+    Rounds off the decimal of a value if it is an integer float.
 
     Parameters
     ----------
@@ -52,16 +52,15 @@ def round_if_int(val):
         val : int
             The original value rounded if applicable
     """
-    if type(val) == float:
-        if val.is_integer():
-            val = int(val)
+    if isinstance(val, float) and val.is_integer():
+        val = int(val)
 
     return val
 
 
 def gen_list_of_lists(original_list, new_structure):
     """
-    Generates a list of lists with a given structure from a given list
+    Generates a list of lists with a given structure from a given list.
 
     Parameters
     ----------
@@ -79,17 +78,15 @@ def gen_list_of_lists(original_list, new_structure):
         new_structure
     ), "The number of elements in the original list and desired structure don't match"
 
-    list_of_lists = [
+    return [
         [original_list[i + sum(new_structure[:j])] for i in range(new_structure[j])]
         for j in range(len(new_structure))
     ]
 
-    return list_of_lists
-
 
 def add_num_commas(num):
     """
-    Adds commas to a numeric string for readability
+    Adds commas to a numeric string for readability.
 
     Parameters
     ----------
@@ -103,10 +100,8 @@ def add_num_commas(num):
     """
     num_str = str(num)
     num_str_no_decimal = num_str.split(".")[0]
-    if "." in num_str:
-        decimal = num_str.split(".")[1]
-    else:
-        decimal = None
+
+    decimal = num_str.split(".")[1] if "." in num_str else None
 
     str_list = [i for i in num_str_no_decimal]
     str_list = str_list[::-1]
@@ -116,10 +111,7 @@ def add_num_commas(num):
     ]
     str_list_with_commas = str_list_with_commas[::-1]
 
-    str_with_commas = ""
-    for i in str_list_with_commas:
-        str_with_commas += i
-
+    str_with_commas = "".join(str_list_with_commas)
     if decimal != None:
         return str_with_commas + "." + decimal
     else:
@@ -128,7 +120,7 @@ def add_num_commas(num):
 
 def hex_to_rgb(hex_rep):
     """
-    Converts a hexadecimal representation to its RGB ratios
+    Converts a hexadecimal representation to its RGB ratios.
 
     Parameters
     ----------
@@ -140,15 +132,14 @@ def hex_to_rgb(hex_rep):
         rgb_trip : tuple
             An RGB tuple color representation
     """
-    rgb_trip = sRGBColor(
+    return sRGBColor(
         *[int(hex_rep[i + 1 : i + 3], 16) for i in (0, 2, 4)], is_upscaled=True
     )
-    return rgb_trip
 
 
 def rgb_to_hex(rgb_trip):
     """
-    Converts rgb ratios to their hexadecimal representation
+    Converts rgb ratios to their hexadecimal representation.
 
     Parameters
     ----------
@@ -161,19 +152,17 @@ def rgb_to_hex(rgb_trip):
             The hex representation of the color
     """
     trip_0, trip_1, trip_2 = rgb_trip[0], rgb_trip[1], rgb_trip[2]
-    if type(trip_0) == float or np.float64:
+    if isinstance(trip_0, (float, np.float64)):
         trip_0 *= 255
         trip_1 *= 255
         trip_2 *= 255
 
-    hex_rep = "#%02x%02x%02x" % (int(trip_0), int(trip_1), int(trip_2))
-
-    return hex_rep
+    return "#%02x%02x%02x" % (int(trip_0), int(trip_1), int(trip_2))
 
 
 def scale_saturation(rgb_trip, sat):
     """
-    Changes the saturation of an rgb color
+    Changes the saturation of an rgb color.
 
     Parameters
     ----------
@@ -188,26 +177,24 @@ def scale_saturation(rgb_trip, sat):
         saturated_rgb : tuple
             colorsys.hls_to_rgb saturation of the given color
     """
-    if (type(rgb_trip) == str) and (len(rgb_trip) == 9) and (rgb_trip[-2:] == "00"):
+    if (isinstance(rgb_trip, str)) and (len(rgb_trip) == 9) and (rgb_trip[-2:] == "00"):
         # An RGBA has been provided and its alpha is 00, so return it for a transparent marker
         return rgb_trip
 
-    if (type(rgb_trip) == str) and (len(rgb_trip) == 7):
+    if (isinstance(rgb_trip, str)) and (len(rgb_trip) == 7):
         rgb_trip = hex_to_rgb(rgb_trip)
 
-    if type(rgb_trip) == sRGBColor:
+    if isinstance(rgb_trip, sRGBColor):
         rgb_trip = rgb_trip.get_value_tuple()
 
     h, l, s = colorsys.rgb_to_hls(*rgb_trip)
 
-    saturated_rgb = colorsys.hls_to_rgb(h, min(1, l * sat), s=s)
-
-    return saturated_rgb
+    return colorsys.hls_to_rgb(h, min(1, l * sat), s=s)
 
 
 def create_color_palette(start_rgb, end_rgb, num_colors, colorspace):
     """
-    Generates a color palette between two colors
+    Generates a color palette between two colors.
 
     Parameters
     ----------
@@ -245,14 +232,12 @@ def create_color_palette(start_rgb, end_rgb, num_colors, colorspace):
     rgb_colors = [
         convert_color(colorspace(*point), sRGBColor) for point in points_between
     ]
-    palette = [color.get_rgb_hex() for color in rgb_colors]
-
-    return palette
+    return [color.get_rgb_hex() for color in rgb_colors]
 
 
 def gen_random_colors(num_groups, colors=None):
     """
-    Generates random colors
+    Generates random colors.
 
     Parameters
     ----------
@@ -267,23 +252,19 @@ def gen_random_colors(num_groups, colors=None):
         colors or colors + new_colors : list (contains strs)
             Randomly generated colors for figures and plotting
     """
-    if colors == None:
+    if colors is None:
         colors = []
 
     if len(colors) < num_groups:
         while len(colors) < num_groups:
-            random_rgba = (
-                random.random(),
-                random.random(),
-                random.random(),
-                random.random(),
-            )
+            cryptogen = SystemRandom()
+            random_rgba = [cryptogen.random() for i in range(4)]
 
             colors.append(random_rgba)
 
         sns.set_palette(colors)
 
-        if type(colors[0][0]) == float:
+        if isinstance(colors[0][0], float):
             # Convert over for non-sns use
             colors = [mpl.colors.to_hex([c[0], c[1], c[2]]).upper() for c in colors]
 

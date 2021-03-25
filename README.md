@@ -170,5 +170,7 @@ plt.show()
 # To-Do [`↩`](#contents) <a id="to-do"></a>
 
 - Adding standardized examples of further plots and visualizations
+
 - Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/pltviz/plot/pie)
+
 - Allowing all plotting variations to be seamlessly plotted from either lists or dataframe columns where applicable
