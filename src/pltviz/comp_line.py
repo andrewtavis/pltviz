@@ -28,7 +28,7 @@ def comp_line(
     axis=None,
 ):
     """
-    Plots a line plot to compare statistics over a changing baseline
+    Plots a line plot to compare statistics over a changing baseline.
 
     Parameters
     ----------
