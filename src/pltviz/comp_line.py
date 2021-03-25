@@ -72,11 +72,11 @@ def comp_line(
             utils.rgb_to_hex(c) for c in sns.color_palette(n_colors=len(df), desat=1)
         ]
 
-    if type(colors) == str or type(colors) == tuple:
+    if isinstance(colors, (str, tuple)):
         colors = [colors]
 
     # Check to see if colors haven't been formatted in a prior recursive step
-    if type(colors[0]) != tuple:
+    if not isinstance(colors[0], tuple):
         colors = [
             utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=default_sat)
             for c in colors
@@ -85,11 +85,11 @@ def comp_line(
 
     df_copy = df.copy()
 
-    if type(dependent_cols) == str:
+    if isinstance(dependent_cols, str):
         # Assume that the user is passing a single column with values corresponding to another column's
         if dependent_cols in df_copy.columns:
-            assert (
-                type(indep_stats) == str and type(df_copy[indep_stats]) == pd.Series
+            assert isinstance(indep_stats, str) and isinstance(
+                df_copy[indep_stats], pd.Series
             ), "A corresponding column should be passed as 'indep_stats' if 'dependent_cols' is a single df column."
             assert (
                 group_col != None
@@ -163,7 +163,7 @@ def comp_line(
         ax.stackplot(indep_stats, lol_allocations)
 
     else:
-        if type(dependent_cols) == str:
+        if isinstance(dependent_cols, str):
             dependent_cols = [dependent_cols]
         for i in df_copy.index:
             ax = sns.lineplot(

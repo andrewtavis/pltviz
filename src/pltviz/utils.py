@@ -26,10 +26,8 @@ Contents:
 
 from random import SystemRandom
 import colorsys
-from difflib import SequenceMatcher
 
 import numpy as np
-import pandas as pd
 
 import matplotlib as mpl
 import seaborn as sns
