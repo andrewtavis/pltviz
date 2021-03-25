@@ -42,9 +42,9 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
         lgnd_handles : list (countains unplotted 2D lines)
             A list of lines, the handles of which can be used for more advanced plots
     """
-    if type(colors) == str:
+    if isinstance(colors, str):
         colors = [colors]
-    elif colors == None:
+    elif colors is None:
         sns.set_palette("deep")  # default sns palette
         colors = [utils.rgb_to_hex(c) for c in sns.color_palette()]
 
@@ -53,7 +53,7 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
         c if (len(c) == 9) and (c[-2:] == "00") else "#D2D2D3" for c in colors
     ]
 
-    lgnd_handles = [
+    return [
         Line2D(
             [0],
             [0],
@@ -66,8 +66,6 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
         )
         for i, c in enumerate(colors)
     ]
-
-    return lgnd_handles
 
 
 def gen_elements(
@@ -114,9 +112,9 @@ def gen_elements(
         lgnd_handles, lgnd_labels: list (countains unplotted 2D lines) and list (contains strs)
             A list of lines, the handles of which can be used for more advanced plots, as well as labels for the handles
     """
-    if type(colors) == str:
+    if isinstance(colors, str):
         colors = [colors]
-    elif colors == None:
+    elif colors is None:
         sns.set_palette("deep")  # default sns palette
         colors = [utils.rgb_to_hex(c) for c in sns.color_palette()]
 
@@ -132,7 +130,7 @@ def gen_elements(
         labels_copy = None
 
         if counts is not None:
-            if type(counts) == pd.Series:
+            if isinstance(counts, pd.Series):
                 counts = list(counts)
 
             if list in [type(item) for item in counts]:
@@ -160,7 +158,7 @@ def gen_elements(
                 order = list(range(len(labels_copy)))
 
         if padding_indexes:
-            if type(padding_indexes) == int:
+            if isinstance(padding_indexes, int):
                 padding_indexes = [padding_indexes]
             sorted(padding_indexes)
             for i in padding_indexes:
@@ -177,11 +175,11 @@ def gen_elements(
                 f"{labels_copy[i]}: {c}" if c != None else ""
                 for i, c in enumerate(counts_copy)
             ]
-        elif (counts_copy is not None) and (labels_copy is None):
+        elif counts_copy is not None:
             lgnd_labels = [
                 f"{c}" if c != None else "" for i, c in enumerate(counts_copy)
             ]
-        elif (counts_copy is None) and (labels_copy is not None):
+        elif labels_copy is not None:
             lgnd_labels = [
                 f"{lbl}" if lbl != None else "" for i, lbl in enumerate(labels_copy)
             ]

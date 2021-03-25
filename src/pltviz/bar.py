@@ -121,7 +121,7 @@ def bar(
             item for sublist in factions_for_labels for item in sublist
         ]
 
-    if type(labels) == pd.Series:
+    if isinstance(labels, pd.Series):
         labels = list(labels)
 
     if labels:
