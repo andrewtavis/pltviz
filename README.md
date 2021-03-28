@@ -169,6 +169,8 @@ plt.show()
 
 # To-Do [`↩`](#contents) <a id="to-do"></a>
 
+Please see the [contribution guidelines](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md) if you are interested in contributing to this project. Work that is in progress or could be implemented includes:
+
 - Adding standardized examples of further plots and visualizations
 
 - Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/pltviz/plot/pie)
