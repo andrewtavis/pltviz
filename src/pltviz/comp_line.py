@@ -6,9 +6,8 @@ Contents:
     comp_line
 """
 
-import pandas as pd
-
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
 
 from pltviz import utils

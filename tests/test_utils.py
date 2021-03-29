@@ -4,7 +4,6 @@ Utilities Tests
 """
 
 from colormath.color_objects import sRGBColor
-
 from pltviz import utils
 
 

@@ -4,7 +4,6 @@ Semipie Plot Tests
 """
 
 import matplotlib.pyplot as plt
-
 import pltviz
 
 

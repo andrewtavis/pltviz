@@ -24,16 +24,14 @@ Contents:
     gen_random_colors
 """
 
-from random import SystemRandom
 import colorsys
-
-import numpy as np
+from random import SystemRandom
 
 import matplotlib as mpl
+import numpy as np
 import seaborn as sns
-
-from colormath.color_objects import sRGBColor
 from colormath.color_conversions import convert_color
+from colormath.color_objects import sRGBColor
 
 
 def round_if_int(val):

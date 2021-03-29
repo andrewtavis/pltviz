@@ -4,7 +4,6 @@ Legend Tests
 """
 
 import matplotlib.pyplot as plt
-
 import pltviz
 
 

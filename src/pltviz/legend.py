@@ -10,9 +10,8 @@ Contents:
 """
 
 import pandas as pd
-
-from matplotlib.lines import Line2D
 import seaborn as sns
+from matplotlib.lines import Line2D
 
 from pltviz import utils
 

@@ -6,10 +6,10 @@ Contents:
     semipie
 """
 
-import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from matplotlib.collections import PatchCollection
+import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib.collections import PatchCollection
 
 from pltviz import utils
 

@@ -7,9 +7,8 @@ Contents:
 """
 
 import numpy as np
-
-from matplotlib import pyplot as plt
 import seaborn as sns
+from matplotlib import pyplot as plt
 
 default_sat = 0.95
 

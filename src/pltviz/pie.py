@@ -8,9 +8,7 @@ Contents:
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 from colormath.color_objects import sRGBColor
-
 from poli_sci_kit.appointment.methods import highest_average
 
 from pltviz import utils

@@ -3,10 +3,9 @@ Bar Plot Tests
 --------------
 """
 
-import pytest
 import matplotlib.pyplot as plt
-
 import pltviz
+import pytest
 
 
 def test_bar(
