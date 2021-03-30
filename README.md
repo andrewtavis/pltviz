@@ -175,7 +175,7 @@ Please see the [contribution guidelines](https://github.com/andrewtavis/pltviz/b
 
 - Adding standardized examples of further plots and visualizations
 
-- Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/src/pltviz/plot/pie)
+- Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/blob/main/src/pltviz/pie.py)
 
 - Improving [tests](https://github.com/andrewtavis/pltviz/tree/main/tests) for greater [code coverage](https://codecov.io/gh/andrewtavis/pltviz)
 
