@@ -24,7 +24,7 @@ copyright = '2020-2021, pltviz developers (BSD License)"'
 author = "pltviz developers"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.2.4"
+release = "0.1.2.5"
 
 
 # -- General configuration ---------------------------------------------------

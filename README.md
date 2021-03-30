@@ -44,7 +44,7 @@ import pltviz
 
 # plot [`↩`](#contents) <a id="plot"></a>
 
-Plotting methods within [pltviz](https://github.com/andrewtavis/pltviz/tree/main/pltviz) are tailored to provide quick results for staples of data visualization.
+Plotting methods within [pltviz](https://github.com/andrewtavis/pltviz/tree/main/src/pltviz) are tailored to provide quick results for staples of data visualization.
 
 See [examples/plot](https://github.com/andrewtavis/pltviz/blob/main/examples/plot.ipynb) for all plotting styles that seamlessly combine graphing functions of seaborn, matplotlib, and pandas.
 
@@ -66,7 +66,7 @@ party_colors = ['#000000', '#ffed00', '#64a12d', '#be3075', '#eb001f', '#009ee0'
 seat_allocations = [26, 9, 37, 12, 23, 5]
 ```
 
-The following shows [pltviz.bar](https://github.com/andrewtavis/pltviz/blob/main/pltviz/bar.py) that allows all common options to be selected as binaries:
+The following shows [pltviz.bar](https://github.com/andrewtavis/pltviz/blob/main/src/pltviz/bar.py) that allows all common options to be selected as binaries:
 
 ```python
 # Bar plot options such as stacked and label bars are booleans
@@ -107,7 +107,7 @@ ax.set_xlabel("Party", fontsize=15)
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/bar.png" width="600" />
 </p>
 
-Also included is a [pltviz.semipie](https://github.com/andrewtavis/pltviz/blob/main/pltviz/semipie.py) via matplotlib artists for cases where a simple and condensed plot is needed:
+Also included is a [pltviz.semipie](https://github.com/andrewtavis/pltviz/blob/main/src/pltviz/semipie.py) via matplotlib artists for cases where a simple and condensed plot is needed:
 
 ```python
 ax = pltviz.semipie(counts=seat_allocations, colors=party_colors, donut_ratio=0.5)
@@ -139,7 +139,7 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/semipie.png" width="600" />
 </p>
 
-pltviz also includes specialized plots such as [pltviz.gini](https://github.com/andrewtavis/pltviz/blob/main/pltviz/gini.py) to visualize [gini coefficients](https://en.wikipedia.org/wiki/Gini_coefficient) of inequality:
+pltviz also includes specialized plots such as [pltviz.gini](https://github.com/andrewtavis/pltviz/blob/main/src/pltviz/gini.py) to visualize [gini coefficients](https://en.wikipedia.org/wiki/Gini_coefficient) of inequality:
 
 ```python
 global_gdp_deciles = [0.49, 0.59, 0.69, 0.79, 1.89, 2.55, 5.0, 10.0, 18.0, 60.0]
@@ -175,7 +175,7 @@ Please see the [contribution guidelines](https://github.com/andrewtavis/pltviz/b
 
 - Adding standardized examples of further plots and visualizations
 
-- Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/pltviz/plot/pie)
+- Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/tree/main/src/pltviz/plot/pie)
 
 - Improving [tests](https://github.com/andrewtavis/pltviz/tree/main/tests) for greater [code coverage](https://codecov.io/gh/andrewtavis/pltviz)
 
