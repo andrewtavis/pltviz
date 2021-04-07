@@ -48,7 +48,7 @@ Pillow==8.1.2
 pip==20.3.3
 pkginfo==1.7.0
 pluggy==0.13.1
-poli-sci-kit==0.1.0
+poli-sci-kit==0.1.2.7.1
 property-manager==3.0
 py==1.10.0
 pycparser==2.20

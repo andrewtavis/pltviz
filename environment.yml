@@ -115,7 +115,7 @@ dependencies:
     - jinja2==2.11.3
     - markupsafe==1.1.1
     - networkx==2.5
-    - poli-sci-kit==0.1.0
+    - poli-sci-kit==0.1.2.7.1
     - property-manager==3.0
     - snowballstemmer==2.1.0
     - sphinx==3.5.1
