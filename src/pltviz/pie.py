@@ -9,7 +9,7 @@ Contents:
 import matplotlib.pyplot as plt
 import seaborn as sns
 from colormath.color_objects import sRGBColor
-from poli_sci_kit.appointment.methods import highest_average
+from poli_sci_kit.appointment.methods import highest_averages
 
 from pltviz import utils
 
@@ -141,21 +141,21 @@ def pie(
             [rgb_colors[i] for i in sublist] for sublist in factioned_indexes
         ]
 
-        # Use the Jefferson highest_average method divide the outer ring based on the proportions of the factions
-        faction_sections = highest_average(
+        # Use the Jefferson highest_averages method divide the outer ring based on the proportions of the factions
+        faction_sections = highest_averages(
             shares=faction_counts, total_alloc=len(outer_ring_sections)
         )
 
         outer_ring_colors = []
         for faction_index in range(len(faction_labels)):
-            # Use the Jefferson highest_average method again to allocate the faction's outer ring sections to colors
+            # Use the Jefferson highest_averages method again to allocate the faction's outer ring sections to colors
             # This would contain allocations for len(counts[faction_index]) colors, but there are len(counts[faction_index])-1 gradients
-            # Thus average over Jefferson highest_average allocations when each element is removed for appropriately weighted gradients
+            # Thus average over Jefferson highest_averages allocations when each element is removed for appropriately weighted gradients
             if len(counts[faction_index]) == 1:
                 averaged_allocations = [faction_sections[faction_index]]
             else:
                 one_removed_allocations = [
-                    highest_average(
+                    highest_averages(
                         shares=counts[faction_index][:i]
                         + counts[faction_index][i + 1 :],
                         total_alloc=faction_sections[faction_index],
