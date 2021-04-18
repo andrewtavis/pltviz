@@ -21,10 +21,11 @@
 **pltviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
 # **Contents**<a id="contents"></a>
+- [Installation](#installation)
 - [plot](#plot)
 - [To-Do](#to-do)
 
-# Installation
+# Installation [`↩`](#contents) <a id="installation"></a>
 
 pltviz can be downloaded from PyPI via pip or sourced directly from this repository:
 
