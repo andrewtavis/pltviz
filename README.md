@@ -2,7 +2,7 @@
   <a href="https://github.com/andrewtavis/pltviz"><img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/pltviz_logo_transparent.png" width=488 height=157></a>
 </div>
 
---------------------------------------
+---
 
 [![rtd](https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs)](http://pltviz.readthedocs.io/en/latest/)
 [![ci](https://img.shields.io/github/workflow/status/andrewtavis/pltviz/CI?logo=github)](https://github.com/andrewtavis/pltviz/actions?query=workflow%3ACI)
@@ -21,6 +21,7 @@
 **pltviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
 # **Contents**<a id="contents"></a>
+
 - [Installation](#installation)
 - [plot](#plot)
 - [To-Do](#to-do)
@@ -104,6 +105,7 @@ ax.legend(
 ax.set_ylabel("Seats", fontsize=15)
 ax.set_xlabel("Party", fontsize=15)
 ```
+
 <p align="middle">
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/bar.png" width="600" />
 </p>

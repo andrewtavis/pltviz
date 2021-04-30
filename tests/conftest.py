@@ -6,7 +6,7 @@ Fixtures
 import pytest
 
 
-# Allocations from examples.plot.ipynb
+# Allocations from examples.plot.ipynb.
 @pytest.fixture(params=[[26, 9, 37, 12, 23, 5]])
 def allocations(request):
     return request.param

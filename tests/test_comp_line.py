@@ -56,7 +56,7 @@ def test_comp_line(monkeypatch, parties, party_colors):
         percent=True,
     )
 
-    # One column has values that are split across multiple instances
+    # One column has values that are split across multiple instances.
     seats = [1, 2, 3, 4, 5, 6] * 6
     years = [2000, 2001, 2002, 2003, 2004, 2005] * 6
 

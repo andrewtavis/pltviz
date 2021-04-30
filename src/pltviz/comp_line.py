@@ -74,7 +74,7 @@ def comp_line(
     if isinstance(colors, (str, tuple)):
         colors = [colors]
 
-    # Check to see if colors haven't been formatted in a prior recursive step
+    # Check to see if colors haven't been formatted in a prior recursive step.
     if not isinstance(colors[0], tuple):
         colors = [
             utils.scale_saturation(rgb_trip=utils.hex_to_rgb(c), sat=default_sat)
@@ -85,7 +85,8 @@ def comp_line(
     df_copy = df.copy()
 
     if isinstance(dependent_cols, str):
-        # Assume that the user is passing a single column with values corresponding to another column's
+        # Assume that the user is passing a single column with values
+        # corresponding to another column's.
         if dependent_cols in df_copy.columns:
             assert isinstance(indep_stats, str) and isinstance(
                 df_copy[indep_stats], pd.Series
@@ -94,14 +95,15 @@ def comp_line(
                 group_col != None
             ), "The 'group_col' argument must be passed if providing a single comparison column."
 
-            # Create a similar form to the other path's df and recursively run this function
+            # Create a similar form to the other path's df and recursively run this function.
             new_indep_stats = [
                 utils.round_if_int(float(s)) for s in df_copy[indep_stats].unique()
             ]
-            # Sort the baseline stats, as they're likely years, so objective is a graph that's increasing in time
+            # Sort the baseline stats, as they're likely years, so objective is a
+            # graph that's increasing in time.
             sorted_nbs = sorted(new_indep_stats)
 
-            # Derive whether it already was sorted to know how to order the value assignment
+            # Derive whether it already was sorted to know how to order the value assignment.
             was_sorted = sorted_nbs == new_indep_stats
             if was_sorted == True:
                 was_sorted = -1
