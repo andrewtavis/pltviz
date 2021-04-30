@@ -176,8 +176,6 @@ plt.show()
 
 Please see the [contribution guidelines](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md) if you are interested in contributing to this project. Work that is in progress or could be implemented includes:
 
-- Creating concise [requirements.txt](https://github.com/andrewtavis/pltviz/blob/main/requirements.txt) and [environment.yml](https://github.com/andrewtavis/pltviz/blob/main/environment.yml) files [(see issue)](https://github.com/andrewtavis/pltviz/issues/11)
-
 - Adding standardized examples of further plots and visualizations [(see issue)](https://github.com/andrewtavis/pltviz/issues/12)
 
 - Finishing the coloration on the outer ring of [pltviz.pie](https://github.com/andrewtavis/pltviz/blob/main/src/pltviz/pie.py)
