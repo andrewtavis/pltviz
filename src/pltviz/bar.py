@@ -91,7 +91,7 @@ def bar(
         ]
 
     if stacked:
-        # Derive positions where bars should start
+        # Derive positions where bars should start.
         if list in [type(i) for i in counts]:
             bar_starts = []
             for sub_list in counts:
@@ -172,7 +172,7 @@ def bar(
                     )
 
                 else:
-                    # Start and end indexes of all factions
+                    # Start and end indexes of all factions.
                     faction_start_idxs = list(set([p.get_y() for p in ax.patches]))
 
                     for i, c in enumerate(counts):

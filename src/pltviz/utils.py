@@ -6,12 +6,12 @@ Utility functions for general operations and coloration.
 
 Note:
 In order to standardize coloration and make plots more readable,
-input colors are by default scaled to a lower saturation
+input colors are by default scaled to a lower saturation.
 
 This follows seaborn's default darkening of colors,
-but is not as dark to roughly maintain input colors
+but is not as dark to roughly maintain input colors.
 
-Functions here use pandas, pyplot, and seaborn, hence the need for standardization
+Functions here use pandas, pyplot, and seaborn, hence the need for standardization.
 
 Contents:
     round_if_int,
@@ -174,7 +174,8 @@ def scale_saturation(rgb_trip, sat):
             colorsys.hls_to_rgb saturation of the given color
     """
     if (isinstance(rgb_trip, str)) and (len(rgb_trip) == 9) and (rgb_trip[-2:] == "00"):
-        # An RGBA has been provided and its alpha is 00, so return it for a transparent marker
+        # An RGBA has been provided and its alpha is 00, so return it for
+        # a transparent marker.
         return rgb_trip
 
     if (isinstance(rgb_trip, str)) and (len(rgb_trip) == 7):
@@ -211,7 +212,7 @@ def create_color_palette(start_rgb, end_rgb, num_colors, colorspace):
         palette : list (contains sts)
             A list of length num_colors with color hexes for the palette elements
     """
-    # Define the start and end within a geometric space and find those points between
+    # Define the start and end within a geometric space and find those points between.
     start_tuple = convert_color(start_rgb, colorspace).get_value_tuple()
     end_tuple = convert_color(end_rgb, colorspace).get_value_tuple()
 
@@ -224,7 +225,7 @@ def create_color_palette(start_rgb, end_rgb, num_colors, colorspace):
         )
     )
 
-    # Convert points to RGB and then to hexes for the output
+    # Convert points to RGB and then to hexes for the output.
     rgb_colors = [
         convert_color(colorspace(*point), sRGBColor) for point in points_between
     ]
@@ -261,7 +262,7 @@ def gen_random_colors(num_groups, colors=None):
         sns.set_palette(colors)
 
         if isinstance(colors[0][0], float):
-            # Convert over for non-sns use
+            # Convert over for non-sns use.
             colors = [mpl.colors.to_hex([c[0], c[1], c[2]]).upper() for c in colors]
 
     return colors

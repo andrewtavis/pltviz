@@ -47,7 +47,7 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
         sns.set_palette("deep")  # default sns palette
         colors = [utils.rgb_to_hex(c) for c in sns.color_palette()]
 
-    # Marker edge colors are the same as legend boarder unless transparent RGBA
+    # Marker edge colors are the same as legend boarder unless transparent RGBA.
     marker_edge_colors = [
         c if (len(c) == 9) and (c[-2:] == "00") else "#D2D2D3" for c in colors
     ]
@@ -119,12 +119,12 @@ def gen_elements(
 
     colors_copy = colors[:]
 
-    # Empty lists are returned if no arguments are passed
-    # Allows for easy experimentation with the legend
+    # Empty lists are returned if no arguments are passed.
+    # Allows for easy experimentation with the legend.
     lgnd_handles = []
     lgnd_labels = []
     if (counts is not None) or (labels is not None):
-        # Create 'None' copies to assure originals aren't altered
+        # Create 'None' copies to assure originals aren't altered.
         counts_copy = None
         labels_copy = None
 

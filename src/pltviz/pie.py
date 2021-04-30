@@ -125,32 +125,36 @@ def pie(
     if faction_labels:
         faction_counts = [sum(sub_list) for sub_list in counts]
 
-        # Indexes for later colors
+        # Indexes for later colors.
         group_indexes = list(range(total_groups))
         factioned_indexes = utils.gen_list_of_lists(
             original_list=group_indexes,
             new_structure=[len(sublist) for sublist in counts],
         )
 
-        # Outer sections to be colored and determined by outer_ring_density
+        # Outer sections to be colored and determined by outer_ring_density.
         outer_ring_sections = [1 for i in range(outer_ring_density)]
 
-        # Convert colors to rgb and classify them into factions
+        # Convert colors to rgb and classify them into factions.
         rgb_colors = [utils.hex_to_rgb(c) for c in colors]
         faction_colors = [
             [rgb_colors[i] for i in sublist] for sublist in factioned_indexes
         ]
 
-        # Use the Jefferson highest_averages method divide the outer ring based on the proportions of the factions
+        # Use the Jefferson highest_averages method divide the outer ring
+        # based on the proportions of the factions.
         faction_sections = highest_averages(
             shares=faction_counts, total_alloc=len(outer_ring_sections)
         )
 
         outer_ring_colors = []
         for faction_index in range(len(faction_labels)):
-            # Use the Jefferson highest_averages method again to allocate the faction's outer ring sections to colors
-            # This would contain allocations for len(counts[faction_index]) colors, but there are len(counts[faction_index])-1 gradients
-            # Thus average over Jefferson highest_averages allocations when each element is removed for appropriately weighted gradients
+            # Use the Jefferson highest_averages method again to allocate
+            # the faction's outer ring sections to colors.
+            # This would contain allocations for len(counts[faction_index]) colors,
+            # but there are len(counts[faction_index])-1 gradients.
+            # Thus average over Jefferson highest_averages allocations when
+            # each element is removed for appropriately weighted gradients.
             if len(counts[faction_index]) == 1:
                 averaged_allocations = [faction_sections[faction_index]]
             else:
@@ -175,7 +179,7 @@ def pie(
 
             averaged_allocations = [round(i) for i in averaged_allocations]
 
-            # Correct in case of rounding errors
+            # Correct in case of rounding errors.
             if sum(averaged_allocations) < faction_sections[faction_index]:
                 averaged_allocations[0] += faction_sections[faction_index] - sum(
                     averaged_allocations
@@ -186,7 +190,7 @@ def pie(
                 )
 
             if len(faction_colors[faction_index]) == 1:
-                # Assign sole group's color via a monochrome gradient
+                # Assign sole group's color via a monochrome gradient.
                 outer_ring_colors.append(
                     utils.create_color_palette(
                         start_rgb=faction_colors[faction_index][0],
@@ -196,7 +200,8 @@ def pie(
                     )
                 )
             else:
-                # Create a gradient mix of the faction colors for the section of the outer ring
+                # Create a gradient mix of the faction colors for the section
+                # of the outer ring.
                 for color_index in range(len(faction_colors[faction_index]))[:-1]:
                     outer_ring_colors.append(
                         utils.create_color_palette(
@@ -209,13 +214,13 @@ def pie(
 
         outer_ring_colors = [item for sublist in outer_ring_colors for item in sublist]
 
-        # Flatten counts for the inner ring and labelling
+        # Flatten counts for the inner ring and labelling.
         counts = [item for sublist in counts for item in sublist]
 
         if display_labels:
             outer_ring_labels = []
             labels = [""] * len(counts)
-            # Place labels in the middle of the faction's arc, and make the others blank
+            # Place labels in the middle of the faction's arc, and make the others blank.
             factions_index = 0
             label_index = faction_counts[factions_index] / 2  # in the middle
             for i in range(outer_ring_density):
@@ -255,7 +260,7 @@ def pie(
         if display_counts:
             labels = [f"{lbl}: {counts[i]}" for i, lbl in enumerate(labels)]
         else:
-            # Remove labels for those that have 0 counts to avoid confusion
+            # Remove labels for those that have 0 counts to avoid confusion.
             labels = [lbl if counts[i] > 0 else "" for i, lbl in enumerate(labels)]
 
         if not display_labels:
