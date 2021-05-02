@@ -23,29 +23,29 @@ def semipie(counts, colors=None, donut_ratio=1, dsat=default_sat, axis=None):
     Parameters
     ----------
         counts : list (contains ints or floats)
-            The data to be plotted
+            The data to be plotted.
 
         colors : list or list of lists : optional (default=None)
-            The colors of the groups as hex keys
+            The colors of the groups as hex keys.
 
         donut_ratio : float (default=1, a full semicircle)
-            The ratio of the center radius of a donut to the whole
+            The ratio of the center radius of a donut to the whole.
 
         dsat : float : optional (default=default_sat)
-            The degree of desaturation to be applied to the colors
+            The degree of desaturation to be applied to the colors.
 
         axis : str : optional (default=None)
-            Adds an axis to plots so they can be combined
+            Adds an axis to plots so they can be combined.
 
     Returns
     -------
         ax : matplotlib.pyplot.subplot
-            A semicircle plot that depicts shares or allocations
+            A semicircle plot that depicts shares or allocations.
     """
     if colors:
         assert len(colors) == len(
             counts
-        ), "The number of colors provided doesn't match the number of counts to be displayed"
+        ), "The number of colors provided doesn't match the number of counts to be displayed."
 
     elif colors == None:
         sns.set_palette("deep")  # default sns palette

@@ -41,12 +41,12 @@ def round_if_int(val):
     Parameters
     ----------
         val : float or int
-            A numeric value to be rounded
+            A numeric value to be rounded.
 
     Retruns
     -------
         val : int
-            The original value rounded if applicable
+            The original value rounded if applicable.
     """
     if isinstance(val, float) and val.is_integer():
         val = int(val)
@@ -61,18 +61,18 @@ def gen_list_of_lists(original_list, new_structure):
     Parameters
     ----------
         original_list : list
-            The list to make into a list of lists
+            The list to make into a list of lists.
 
-        new_structure : list of lists (contains ints)
+        new_structure : list of lists (contains ints).
 
     Returns
     -------
         list_of_lists : list of lists
-            The original list with elements organized with the given structure
+            The original list with elements organized with the given structure.
     """
     assert len(original_list) == sum(
         new_structure
-    ), "The number of elements in the original list and desired structure don't match"
+    ), "The number of elements in the original list and desired structure don't match."
 
     return [
         [original_list[i + sum(new_structure[:j])] for i in range(new_structure[j])]
@@ -87,12 +87,12 @@ def add_num_commas(num):
     Parameters
     ----------
         num : int or float
-            A number to have commas added to
+            A number to have commas added to.
 
     Retruns
     -------
         str_with_commas : str
-            The original number with commas to make it more readable
+            The original number with commas to make it more readable.
     """
     num_str = str(num)
     num_str_no_decimal = num_str.split(".")[0]
@@ -121,12 +121,12 @@ def hex_to_rgb(hex_rep):
     Parameters
     ----------
         hex_rep : str
-            The hex representation of the color
+            The hex representation of the color.
 
     Returns
     -------
         rgb_trip : tuple
-            An RGB tuple color representation
+            An RGB tuple color representation.
     """
     return sRGBColor(
         *[int(hex_rep[i + 1 : i + 3], 16) for i in (0, 2, 4)], is_upscaled=True
@@ -140,12 +140,12 @@ def rgb_to_hex(rgb_trip):
     Parameters
     ----------
         rgb_trip : tuple
-            An RGB tuple color representation
+            An RGB tuple color representation.
 
     Returns
     -------
         hex_rep : str
-            The hex representation of the color
+            The hex representation of the color.
     """
     trip_0, trip_1, trip_2 = rgb_trip[0], rgb_trip[1], rgb_trip[2]
     if isinstance(trip_0, (float, np.float64)):
@@ -163,15 +163,15 @@ def scale_saturation(rgb_trip, sat):
     Parameters
     ----------
         rgb_trip : tuple
-            An RGB tuple color representation
+            An RGB tuple color representation.
 
         sat : float
-            The saturation it rgb_trip should be modified by
+            The saturation it rgb_trip should be modified by.
 
     Returns
     -------
         saturated_rgb : tuple
-            colorsys.hls_to_rgb saturation of the given color
+            colorsys.hls_to_rgb saturation of the given color.
     """
     if (isinstance(rgb_trip, str)) and (len(rgb_trip) == 9) and (rgb_trip[-2:] == "00"):
         # An RGBA has been provided and its alpha is 00, so return it for
@@ -196,21 +196,21 @@ def create_color_palette(start_rgb, end_rgb, num_colors, colorspace):
     Parameters
     ----------
         start_rgb : colormath.color_objects.sRGBColor
-            The first color in the palette
+            The first color in the palette.
 
         end_rgb : colormath.color_objects.sRGBColor
-            The last color in the palette
+            The last color in the palette.
 
         num_colors : int
-            The total colors of the palette including the start and end colors
+            The total colors of the palette including the start and end colors.
 
         colorspace : colormath.color_object
-            The color scheme for the palette
+            The color scheme for the palette.
 
     Returns
     -------
         palette : list (contains sts)
-            A list of length num_colors with color hexes for the palette elements
+            A list of length num_colors with color hexes for the palette elements.
     """
     # Define the start and end within a geometric space and find those points between.
     start_tuple = convert_color(start_rgb, colorspace).get_value_tuple()
@@ -239,15 +239,15 @@ def gen_random_colors(num_groups, colors=None):
     Parameters
     ----------
         num_groups : int
-            The number of groups for which colors should be generated
+            The number of groups for which colors should be generated.
 
         colors : list : optional (contains strs)
-            Hex based colors that should be appended if not enough have been provided
+            Hex based colors that should be appended if not enough have been provided.
 
     Returns
     -------
         colors or colors + new_colors : list (contains strs)
-            Randomly generated colors for figures and plotting
+            Randomly generated colors for figures and plotting.
     """
     if colors is None:
         colors = []

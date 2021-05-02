@@ -25,21 +25,21 @@ def gen_handles(colors=None, size=10, marker="o", dsat=default_sat):
     Parameters
     ----------
         colors : list (contains rgb strs)
-            The colors to be used for the legend
+            The colors to be used for the legend.
 
         size : int or float (default=10)
-            The size of the markers for the legend
+            The size of the markers for the legend.
 
         marker : str : optional (default='o')
-            The kind of shape for the legend (takes matplotlib.marker types)
+            The kind of shape for the legend (takes matplotlib.marker types).
 
         dsat : float : optional (default=default_sat)
-            The degree of desaturation to be applied to the colors
+            The degree of desaturation to be applied to the colors.
 
     Returns
     -------
         lgnd_handles : list (countains unplotted 2D lines)
-            A list of lines, the handles of which can be used for more advanced plots
+            A list of lines, the handles of which can be used for more advanced plots.
     """
     if isinstance(colors, str):
         colors = [colors]
@@ -83,33 +83,33 @@ def gen_elements(
     Parameters
     ----------
         counts : list or list of lists : optional (contains ints or floats)
-            The data to be plotted
+            The data to be plotted.
 
         labels : list : optional (default=None; contains strs)
-            The labels of the groups
+            The labels of the groups.
 
         colors : list : optional (contains rgb strs)
-            The colors to be used for the legend
+            The colors to be used for the legend.
 
         size : int or float (default=10)
-            The size of the markers for the legend
+            The size of the markers for the legend.
 
         marker : str : optional (default='o')
-            The kind of shape for the legend (takes matplotlib.marker types)
+            The kind of shape for the legend (takes matplotlib.marker types).
 
         padding_indexes : int or list : optional (default=None)
-            Which indexes in the label should be filled with blank space to organize it well
+            Which indexes in the label should be filled with blank space to organize it well.
 
         order : list : optional (default=None)
-            The order for the handles and labels
+            The order for the handles and labels.
 
         dsat : float : optional (default=default_sat)
-            The degree of desaturation to be applied to the colors
+            The degree of desaturation to be applied to the colors.
 
     Returns
     -------
         lgnd_handles, lgnd_labels: list (countains unplotted 2D lines) and list (contains strs)
-            A list of lines, the handles of which can be used for more advanced plots, as well as labels for the handles
+            A list of lines, the handles of which can be used for more advanced plots, as well as labels for the handles.
     """
     if isinstance(colors, str):
         colors = [colors]

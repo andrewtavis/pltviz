@@ -20,18 +20,18 @@ def gini(shares=None, dsat=default_sat, axis=None):
     Parameters
     ----------
         shares : list (contains ints or floats)
-            The data to be plotted
+            The data to be plotted.
 
         dsat : float : optional (default=default_sat)
-            The degree of desaturation to be applied to the colors
+            The degree of desaturation to be applied to the colors.
 
         axis : str : optional (default=None)
-            Adds an axis to plots so they can be combined
+            Adds an axis to plots so they can be combined.
 
     Returns
     -------
         ax, gini : matplotlib.pyplot.subplot, float
-            A gini plot of dispropotionality and the area under the Lorenz curve
+            A gini plot of dispropotionality and the area under the Lorenz curve.
     """
     if sum(shares) != 1:
         shares = [s / 100 for s in shares]

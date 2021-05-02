@@ -32,38 +32,38 @@ def comp_line(
     Parameters
     ----------
         df : pd.DataFrame
-            Dataframe that contains statistics to be compared
+            Dataframe that contains statistics to be compared.
 
         dependent_cols : str or list (contains strs) (default=None)
-            The column(s) in df which should be compared
+            The column(s) in df which should be compared.
 
         indep_stats : str or list (contains ints or floats) (default=None)
-            A df column or the baseline stats that generated the columns in dependent_cols
+            A df column or the baseline stats that generated the columns in dependent_cols.
 
         group_col : str (default=None)
-            The name of the column in which groups are defined
+            The name of the column in which groups are defined.
 
-            Note: this allows plotting across multiple instances in a single column
+            Note: this allows plotting across multiple instances in a single column.
 
         colors : list or list of lists : optional (default=None)
-            The colors of the groups as hex keys
+            The colors of the groups as hex keys.
 
         stacked : bool (default=False)
-            Whether the plot is a stackplot
+            Whether the plot is a stackplot.
 
         percent : bool (default=False)
-            Whether the y-axis should depict relative amounts or not
+            Whether the y-axis should depict relative amounts or not.
 
         dsat : float : optional (default=default_sat)
-            The degree of desaturation to be applied to the colors
+            The degree of desaturation to be applied to the colors.
 
         axis : str : optional (default=None)
-            Adds an axis to plots so they can be combined
+            Adds an axis to plots so they can be combined.
 
     Returns
     -------
         ax : matplotlib.pyplot.subplot
-            A line plot that shows the shifts in group allocations given seat limits
+            A line plot that shows the shifts in group allocations given seat limits.
     """
     if colors == None:
         sns.set_palette("deep")  # default sns palette

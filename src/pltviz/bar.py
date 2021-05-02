@@ -3,7 +3,7 @@ Bar Plot
 --------
 
 Contents
-    bar:
+    bar
 """
 
 import matplotlib.pyplot as plt
@@ -33,45 +33,48 @@ def bar(
     Parameters
     ----------
         counts : list or list of lists (contains ints or floats)
-            The data to be plotted
-            Note: a list of lists produces a stacked plot where sublists define factions to be stacked
+            The data to be plotted.
+
+            Note: a list of lists produces a stacked plot where sublists define factions to be stacked.
 
         labels : list : optional (default=None; contains strs)
-            The labels of the groups
+            The labels of the groups.
 
         faction_labels : list : optional (default=None; contains strs)
-            The labels of potential factions
-            Note: plotting with factions groups bars based on the list in which they're found
+            The labels of potential factions.
+
+            Note: plotting with factions groups bars based on the list in which they're found.
 
         colors : list : optional (default=None)
-            The colors of the groups as hex keys
+            The colors of the groups as hex keys.
 
         horizontal : bool : optional (default=False)
-            Whether the plot should be horizontal
+            Whether the plot should be horizontal.
 
         stacked : bool : optional (default=False)
-            Whether the outputs should be stacked
-            Note: the use of faction_labels will inherently stack faction members and separate factions
+            Whether the outputs should be stacked.
+
+            Note: the use of faction_labels will inherently stack faction members and separate factions.
 
         label_bars : bool : optional (default=False)
-            Whether or not to label the bars with their heights (or widths)
+            Whether or not to label the bars with their heights (or widths).
 
         dsat : float : optional (default=default_sat)
-            The degree of desaturation to be applied to the colors
+            The degree of desaturation to be applied to the colors.
 
         axis : str : optional (default=None)
-            Adds an axis to plots so they can be combined
+            Adds an axis to plots so they can be combined.
 
     Returns
     -------
         ax : matplotlib.pyplot.subplot
-            A bar plot with the above criteria
+            A bar plot with the above criteria.
     """
     if faction_labels:
         assert (
             list(set([type(count) for count in counts]))[0] == list
             and len(set([type(count) for count in counts])) == 1
-        ), "If plotting groups and their factions, then the 'counts' argument must be a list of lists, where sublists are group counts in the given faction"
+        ), "If plotting groups and their factions, then the 'counts' argument must be a list of lists, where sublists are group counts in the given faction."
 
     if list in [type(item) for item in counts]:
         total_groups = len([item for sublist in counts for item in sublist])
@@ -81,7 +84,7 @@ def bar(
     if colors:
         assert (
             len(colors) == total_groups
-        ), "The number of colors provided doesn't match the number of counts to be displayed"
+        ), "The number of colors provided doesn't match the number of counts to be displayed."
 
     elif colors == None:
         sns.set_palette("deep")  # default sns palette

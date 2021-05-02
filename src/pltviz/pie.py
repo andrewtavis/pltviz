@@ -36,56 +36,57 @@ def pie(
     Parameters
     ----------
         counts : list or list of lists (contains ints or floats)
-            The data to be plotted
-            Note: a list of lists produces a two layer plot where sublists define factions
+            The data to be plotted.
+
+            Note: a list of lists produces a two layer plot where sublists define factions.
 
         labels : list : optional (default=None; contains strs)
-            The labels of the groups
+            The labels of the groups.
 
         faction_labels : list : optional (default=None; contains strs)
-            The labels of potential factions
+            The labels of potential factions.
 
         colors : list or list of lists : optional (default=None)
-            The colors of the groups as hex keys
+            The colors of the groups as hex keys.
 
         outer_ring_density : int (default=500)
-            The density of the faction ring gradients
+            The density of the faction ring gradients.
 
         radius : float : optional (default=1)
-            The size of the plot
+            The size of the plot.
 
         donut_ratio : float (default=1, a full circle)
-            The ratio of the center radius of a donut to the whole
+            The ratio of the center radius of a donut to the whole.
 
         display_labels : bool : optional (default=False)
-            Whether to display the labels of the groups (or factions if they're included)
+            Whether to display the labels of the groups (or factions if they're included).
 
-                Note: labels can only be displayed for groups or factions, faction labels are if they're included
+                Note: labels can only be displayed for groups or factions, faction labels are if they're included.
 
-                Note: if factions are included, then a legend should be used for the inner group labels (see package examples)
+                Note: if factions are included, then a legend should be used for the inner group labels (see package examples).
 
         display_counts : bool : optional (default=False)
-            Whether to display the counts of the groups or factions
+            Whether to display the counts of the groups or factions.
 
         label_font_size : int (default=20)
-            The size of the text in the labels
+            The size of the text in the labels.
 
         dsat : float : optional (default=default_sat)
-            The degree of desaturation to be applied to the colors
+            The degree of desaturation to be applied to the colors.
 
         axis : str : optional (default=None)
-            Adds an axis to plots so they can be combined
+            Adds an axis to plots so they can be combined.
 
     Returns
     -------
         ax : matplotlib.pyplot.subplot
-            A donut plot that depicts shares or allocations (potentially including factions)
+            A donut plot that depicts shares or allocations (potentially including factions).
     """
     if faction_labels:
         assert (
             list(set([type(count) for count in counts]))[0] == list
             and len(set([type(count) for count in counts])) == 1
-        ), "If plotting groups and their factions, then the 'counts' argument must be a list of lists, where sublists are group counts in the given faction"
+        ), "If plotting groups and their factions, then the 'counts' argument must be a list of lists, where sublists are group counts in the given faction."
 
     if (
         list(set([type(count) for count in counts]))[0] == list
@@ -93,7 +94,7 @@ def pie(
     ):
         assert (
             faction_labels
-        ), "A list of lists has been provided for 'counts', implying that factions should also be represented, but no labels for the factions have been provided "
+        ), "A list of lists has been provided for 'counts', implying that factions should also be represented, but no labels for the factions have been provided."
 
     if list in [type(item) for item in counts]:
         total_groups = len([item for sublist in counts for item in sublist])
@@ -103,7 +104,7 @@ def pie(
     if colors:
         assert (
             len(colors) == total_groups
-        ), "The number of colors provided doesn't match the number of counts to be displayed"
+        ), "The number of colors provided doesn't match the number of counts to be displayed."
 
     elif colors == None:
         sns.set_palette("deep")  # default sns palette
