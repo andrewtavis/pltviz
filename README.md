@@ -25,7 +25,7 @@
 - [plot](#plot)
 - [To-Do](#to-do)
 
-# Installation [`↩`](#contents) <a id="installation"></a>
+# Installation [`⇧`](#contents) <a id="installation"></a>
 
 pltviz can be downloaded from PyPI via pip or sourced directly from this repository:
 
@@ -43,7 +43,7 @@ python setup.py install
 import pltviz
 ```
 
-# plot [`↩`](#contents) <a id="plot"></a>
+# plot [`⇧`](#contents) <a id="plot"></a>
 
 Plotting methods within [pltviz](https://github.com/andrewtavis/pltviz/tree/main/src/pltviz) are tailored to provide quick results for staples of data visualization.
 
@@ -171,7 +171,7 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/gini.png" width="600" />
 </p>
 
-# To-Do [`↩`](#contents) <a id="to-do"></a>
+# To-Do [`⇧`](#contents) <a id="to-do"></a>
 
 Please see the [contribution guidelines](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md) if you are interested in contributing to this project. Work that is in progress or could be implemented includes:
 
