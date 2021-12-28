@@ -10,7 +10,7 @@ pltviz tries to follow [semantic versioning](https://semver.org/), a MAJOR.MINOR
 
 - Release switches pltviz over to [semantic versioning](https://semver.org/) and indicates that it is stable
 
-### pltviz 0.1.0 (Feb 11, 2021)
+# pltviz 0.1.0 (Feb 11th, 2021)
 
 First stable release of pltviz
 
@@ -22,7 +22,7 @@ First stable release of pltviz
 - Extensive testing of all modules with GH Actions and Codecov
 - Code of conduct and contribution guidelines
 
-### pltviz 0.0.1 (Dec 10, 2020)
+# pltviz 0.0.1 (Dec 10th, 2020)
 
 The minimum viable product of pltviz:
 
