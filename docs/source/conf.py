@@ -24,7 +24,7 @@ copyright = '2020-2021, pltviz developers (BSD License)"'
 author = "pltviz developers"
 
 # The full version, including alpha/beta/rc tags
-release = "0.1.2.7"
+release = "1.0.0"
 
 
 # -- General configuration ---------------------------------------------------
@@ -41,6 +41,23 @@ extensions = [
 
 numpydoc_show_inherited_class_members = False
 numpydoc_show_class_members = False
+
+# NOT to sort autodoc functions in alphabetical order
+autodoc_member_order = "bysource"
+
+# To avoid installing dependencies when building doc
+# https://stackoverflow.com/a/15912502/8729698
+autodoc_mock_imports = [
+    "colormath",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "poli-sci-kit",
+    "pytest",
+    "pytest-cov",
+    "scipy",
+    "seaborn",
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]

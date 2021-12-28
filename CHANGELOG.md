@@ -1,3 +1,15 @@
+# Changelog
+
+pltviz tries to follow [semantic versioning](https://semver.org/), a MAJOR.MINOR.PATCH version where increments are made of the:
+
+- MAJOR version when we make incompatible API changes
+- MINOR version when we add functionality in a backwards compatible manner
+- PATCH version when we make backwards compatible bug fixes
+
+# pltviz 1.0.0 (December 28th, 2021)
+
+- Release switches pltviz over to [semantic versioning](https://semver.org/) and indicates that it is stable
+
 ### pltviz 0.1.0 (Feb 11, 2021)
 
 First stable release of pltviz
