@@ -1,4 +1,4 @@
-.. image:: https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/pltviz_logo_transparent.png
+.. image:: https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/logo/pltviz_logo_transparent.png
     :width: 488
     :height: 157
     :align: center

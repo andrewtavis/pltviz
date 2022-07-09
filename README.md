@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/andrewtavis/pltviz"><img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/pltviz_logo_transparent.png" width=488 height=157></a>
+  <a href="https://github.com/andrewtavis/pltviz"><img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/logo/pltviz_logo_transparent.png" width=488 height=157></a>
 </div>
 
 ---
@@ -112,7 +112,7 @@ ax.set_xlabel("Party", fontsize=15)
 ```
 
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/bar.png" width="600" />
+  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/images/bar.png" width="600" />
 </p>
 
 Also included is a [pltviz.semipie](https://github.com/andrewtavis/pltviz/blob/main/src/pltviz/semipie.py) via matplotlib artists for cases where a simple and condensed plot is needed:
@@ -144,7 +144,7 @@ plt.show()
 ```
 
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/semipie.png" width="600" />
+  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/images/semipie.png" width="600" />
 </p>
 
 pltviz also includes specialized plots such as [pltviz.gini](https://github.com/andrewtavis/pltviz/blob/main/src/pltviz/gini.py) to visualize [gini coefficients](https://en.wikipedia.org/wiki/Gini_coefficient) of inequality:
@@ -174,7 +174,7 @@ plt.show()
 ```
 
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/resources/gh_images/gini.png" width="600" />
+  <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/images/gini.png" width="600" />
 </p>
 
 <a id="to-do"></a>
