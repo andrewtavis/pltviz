@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = "pltviz"
-copyright = '2020-2021, pltviz developers (BSD License)"'
+copyright = '2020, pltviz developers (BSD License)"'
 author = "pltviz developers"
 
 # The full version, including alpha/beta/rc tags
