@@ -2,7 +2,7 @@
   <a href="https://github.com/andrewtavis/pltviz"><img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/logo/pltviz_logo_transparent.png" width=488 height=157></a>
 </div>
 
----
+<ol></ol>
 
 [![rtd](https://img.shields.io/readthedocs/pltviz.svg?logo=read-the-docs)](http://pltviz.readthedocs.io/en/latest/)
 [![ci](https://img.shields.io/github/workflow/status/andrewtavis/pltviz/CI?logo=github)](https://github.com/andrewtavis/pltviz/actions?query=workflow%3ACI)
@@ -15,7 +15,7 @@
 [![codestyle](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![colab](https://img.shields.io/badge/%20-Open%20in%20Colab-097ABB.svg?logo=google-colab&color=097ABB&labelColor=525252)](https://colab.research.google.com/github/andrewtavis/pltviz)
 
-### Standardized plots and visualizations in Python
+## Standardized plots and visualizations in Python
 
 **pltviz** is a Python package for standardized visualization. Routine and novel plotting approaches are formatted to allow for easy variation while providing quick and exact results. Coloration functions are also included for precise colors across plots and to assure that all functions can be ran with color hexes.
 
