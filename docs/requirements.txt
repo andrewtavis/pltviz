@@ -1,2 +1,5 @@
-numpydoc
 m2r2
+numpydoc
+pltviz
+sphinx<7.0.0
+sphinx_rtd_theme
