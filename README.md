@@ -1,3 +1,5 @@
+<a id="top"></a>
+
 <div align="center">
   <a href="https://github.com/andrewtavis/pltviz"><img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/logo/pltviz_logo_transparent.png" width=488 height=157></a>
 </div>
@@ -27,9 +29,7 @@
 - [plot](#plot)
 - [To-Do](#to-do)
 
-<a id="installation"></a>
-
-# Installation [`⇧`](#contents)
+# Installation
 
 pltviz can be downloaded from PyPI via pip or sourced directly from this repository:
 
@@ -47,9 +47,9 @@ python setup.py install
 import pltviz
 ```
 
-<a id="plot"></a>
+<sub><a href="#top">Back to top.</a></sub>
 
-# plot [`⇧`](#contents)
+# plot
 
 Plotting methods within [pltviz](https://github.com/andrewtavis/pltviz/tree/main/src/pltviz) are tailored to provide quick results for staples of data visualization.
 
@@ -177,9 +177,9 @@ plt.show()
   <img src="https://raw.githubusercontent.com/andrewtavis/pltviz/main/.github/resources/images/gini.png" width="600" />
 </p>
 
-<a id="to-do"></a>
+<sub><a href="#top">Back to top.</a></sub>
 
-# To-Do [`⇧`](#contents)
+# To-Do
 
 Please see the [contribution guidelines](https://github.com/andrewtavis/pltviz/blob/main/.github/CONTRIBUTING.md) if you are interested in contributing to this project. Work that is in progress or could be implemented includes:
 
@@ -192,3 +192,5 @@ Please see the [contribution guidelines](https://github.com/andrewtavis/pltviz/b
 - Improving [code quality](https://app.codacy.com/gh/andrewtavis/pltviz/dashboard) by refactoring large functions and checking conventions
 
 - Allowing all plotting variations to be seamlessly plotted from either lists or dataframe columns where applicable
+
+<sub><a href="#top">Back to top.</a></sub>
